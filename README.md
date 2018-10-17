@@ -7,7 +7,7 @@ Final Project
 
 "npm run dev" will run both client and server because we installed concurrently in the main package.json.
 
-"nodemon run server" will run server.js and refreshes page so we do not have to stop server and run again everytime there is change; nodemon will do that for us. 
+"nodemon run server" will run server.js and refreshes page; we do not have to stop server and run again everytime there is change nodemon will do that for us. 
 
 There are two independent package.json files:
 1. one inside client folder for express app only.
