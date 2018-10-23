@@ -4,3 +4,4 @@
 module.exports = {
     mLabMongoURI:"mongodb://<dbuser>:<dbpassword>@ds135233.mlab.com:35233/finalprojectdb"
 }
+
