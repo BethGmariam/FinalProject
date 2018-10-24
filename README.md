@@ -1,6 +1,3 @@
-
-
-
 # Name of FinalProject
 
 ## Description
