@@ -1,7 +1,15 @@
-# FinalProject
-Final Project 
+# Name of FinalProject
 
-clone FinalProject.... 
+## Description
+
+
+## Technologies Used
+
+
+## Group Members
+
+
+## Additional Instructions
 
 There are two independent package.json files:
 1. one inside client folder for express app only.
@@ -13,7 +21,6 @@ Note: when installing modules make sure we add the modules in the proper package
 run "npm install" to install all npm modules required in the main package.json.
 
 run "npm run client-install" to install all modules required for the client package.json; this is still while we are in the main project folder. No need to go to client folder and run npm install but can be done that way as well.
-
 
 "npm run client" will run the client folder which is react-express-app (this avoids going back and forth to src folder and run yarn start)
 

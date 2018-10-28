@@ -35,5 +35,15 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
-  }
+  },
+  "keywords": [
+    "express",
+    "node",
+    "mongo",
+    "react",
+    "create",
+    "read",
+    "update",
+    "delete"
+  ]
 }
