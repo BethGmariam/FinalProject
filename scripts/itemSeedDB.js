@@ -3,7 +3,7 @@ const mLabMongoURI = require("../config/keys").mLabMongoURI;//mongoDb connection
 const db = require("../models");
 
 
-// This file empties the Books collection and inserts the books below
+//add test data to the model
 
 mongoose.connect(
   process.env.MONGODB_URI || mLabMongoURI
@@ -75,7 +75,7 @@ const itemSeed = [
 ];
 
 db.Item
-.remove({})
+.deleteMany()
 .then(() => db.Item.collection.insertMany(itemSeed))
 .then(data => {
   console.log(data.result.n + " records inserted!");
@@ -85,3 +85,12 @@ db.Item
   console.error(err);
   process.exit(1);
 });
+
+
+
+
+
+
+
+
+

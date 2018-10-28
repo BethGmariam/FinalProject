@@ -7,28 +7,35 @@ const routes = require("./routes");// get routes
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //connect to mongo/mongoose
-
 mongoose
-.connect(mLabMongoURI)
-.then(()=>console.log("MongoDb connected...")) // once key is added to config/folder keys.js file, server should connect to mLab finalprojectdb
+.connect(process.env.MONGODB_URI || mLabMongoURI, { useNewUrlParser: true })
+.then(()=>console.log("MongoDb connected...")) // once key is added to config folder keys.js file, server should connect to mLab finalprojectdb
 .catch(err => console.log(err));
 
-// const db = require("./models");
-
-// app.get('/api/test',function(req,res){
-//     db.Item.find({}).then(dbModel => res.json(dbModel))
-   
-// })
+mongoose.set('useCreateIndex', true);
 
 
-// use routes from routes folder
+//use sessions for tracking logins
+// for monitoring users
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const db = mongoose.connection;
+app.use(session({
+    secret: 'work hard',
+    resave: true,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: db
+    })
+  }));
+ 
+// use routes from routes folder index.js
 app.use(routes);
 
-
 const PORT = process.env.PORT || 5000;
-
 
 app.listen(PORT, ()=> console.log(`server started on PORT: ${PORT}`));
 
