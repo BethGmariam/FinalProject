@@ -17,19 +17,19 @@ mongoose
 
 mongoose.set('useCreateIndex', true);
 
-
+// app.use(session({secret:“3243242333”, resave: false, saveUninitialized: true}));
 //use sessions for tracking logins
 // for monitoring users
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-const db = mongoose.connection;
+// const MongoStore = require('connect-mongo')(session);
+// const db = mongoose.connection;
 app.use(session({
     secret: 'work hard',
-    resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-      mongooseConnection: db
-    })
+    resave: false,
+    saveUninitialized: true,
+    // store: new MongoStore({
+      // mongooseConnection: db
+    // })
   }));
  
 // use routes from routes folder index.js

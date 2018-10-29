@@ -1,116 +1,105 @@
-import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
+import React, { Component } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import AppBar from 'material-ui/AppBar';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+
+
 
 class Registration extends Component {
-  state = {
-    books: [],
-    title: "",
-    author: "",
-    synopsis: ""
-  };
 
-  componentDidMount() {
-    this.loadBooks();
-  }
-
-  loadBooks = () => {
-    API.getBooks()
-      .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-      )
-      .catch(err => console.log(err));
-  };
-
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.title && this.state.author) {
-      API.saveBook({
-        title: this.state.title,
-        author: this.state.author,
-        synopsis: this.state.synopsis
-      })
-        .then(res => this.loadBooks())
-        .catch(err => console.log(err));
+    state={
+      first_name:'',
+      last_name:'',
+      email:'',
+      username:'',
+      password:''
     }
-  };
+    
+  
+  handleInputChange = (event) => {
+      const { name, value } = event.target;
+      this.setState({
+        [name]: value
+      });
+    };
 
+  handleFormSubmit=(event) =>{
+    event.preventDefault();
+
+        var userData={
+    first_name: this.state.first_name,
+    last_name:this.state.last_name,
+    email:this.state.email,
+    username:this.state.username,
+    password:this.state.password,
+    }
+
+    // API.saveUser(userData)
+    // .then(res => {
+    //   console.log(res);
+    //  if(res.data.code === 200){console.log("registration successfull");}
+    // })
+    // .catch(err => console.log(err))
+
+  }
+    
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>What Books Should I Read?</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
-              />
-              <Input
-                value={this.state.author}
-                onChange={this.handleInputChange}
-                name="author"
-                placeholder="Author (required)"
-              />
-              <TextArea
-                value={this.state.synopsis}
-                onChange={this.handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              />
-              <FormBtn
-                disabled={!(this.state.author && this.state.title)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit Book
-              </FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Books On My List</h1>
-            </Jumbotron>
-            {this.state.books.length ? (
-              <List>
-                {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
-                      <strong>
-                        {book.title} by {book.author}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
-      </Container>
+      <div style={{textAlign:"center"}}>
+        <MuiThemeProvider>
+          {/* <div>
+              <AppBar title="Register" style={{background:"orange"}}/>
+          </div> */}
+           <form style={{margin:"100px 25%",width:"50%",border:"2px dotted blue"}}>
+                <TextField
+                  name="first_name"
+                  hintText="Enter your First Name"
+                  floatingLabelText="First Name"
+                  onChange={this.handleInputChange}
+                  />
+                <br/>
+                <TextField
+                  name="last_name"
+                  hintText="Enter your Last Name"
+                  floatingLabelText="Last Name"
+                  onChange={this.handleInputChange}
+                  />
+                <br/>
+                <TextField
+                  name="email"
+                  hintText="Enter your Email"
+                  type="email"
+                  floatingLabelText="Email"
+                  onChange={this.handleInputChange}
+                  />
+                <br/>
+                <TextField
+                  name="username"
+                  hintText="Provide username you like to use"
+                  floatingLabelText="User name"
+                  autoComplete="username"
+                  onChange={this.handleInputChange}
+                  />
+                <br/>
+                <TextField
+                  name="password"
+                  type = "password"
+                  hintText="Enter your Password"
+                  floatingLabelText="Password"
+                  autoComplete="current-password"
+                  onChange={this.handleInputChange}
+                  />
+                <br/>
+
+                <RaisedButton label="Register" primary={true} style={{margin:15}} onClick={this.handleFormSubmit}/>
+                <RaisedButton label="Cancel" primary={true} style={{margin:15}} onClick={this.handleFormSubmit}/>
+
+           </form>
+         </MuiThemeProvider>
+      </div>
+
     );
   }
 }

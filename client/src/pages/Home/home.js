@@ -1,9 +1,8 @@
 import React from "react";
 
-const Dashboard = () => (
+const Home = () => (
   <div>
-    <h1>Dashboard</h1>
-    <h2>what goes in here ?</h2>
+    <h1>Home Page</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna
       varius, blandit rhoncus sem. Morbi lacinia nisi ac dui fermentum, sed luctus urna tincidunt.
@@ -17,4 +16,4 @@ const Dashboard = () => (
   </div>
 );
 
-export default Dashboard;
+export default Home;

@@ -1,35 +1,35 @@
-import React, { Component } from 'react';
-import Registration from './pages/Registration/registration';
-import './App.css';
-import Loginscreen from './pages/users/Loginscreen'
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-// injectTapEventPlugin();
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import NavTabs from "./pages/NavTabs";
+import Landing from "./pages/Landing";
+import Registration from "./pages/Registration";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+// import Home from "./pages/Home";
 
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      loginPage:[],
-      uploadScreen:[]
-    }
-  }
-  componentWillMount(){
-    var loginPage =[];
-    loginPage.push(<Loginscreen parentContext={this} key={this}/>);
-    this.setState({
-                  loginPage:loginPage
-                    })
-  }
-  render() {
-    return (
-      <div className="App">
-        <Registration />
-      </div>
-    );
-  }
-}
-// const style = {
-//   margin: 15,
-// };
+import './App.css'
+
+
+
+const App = () => (
+  <Router>
+    <div>
+      <NavTabs />
+      {/* <Route exact path="/" component={Home} /> */}
+      <Route exact path="/landing" component={Landing} />
+      <Route exact path="/register" component={Registration} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/dashboard" component={Dashboard} />
+    </div>
+  </Router>
+);
+
 export default App;
+
+// import React from "react";
+// import MainContainer from "./pages/MainContainer";
+
+// const App = () => <MainContainer />;
+
+// export default App;
+

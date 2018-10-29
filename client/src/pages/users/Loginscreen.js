@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import Login from './Login';
 import Register from './Register';
+import './Loginscreen.css'
 class Loginscreen extends Component {
   // constructor(props){
   //   super(props);
@@ -56,7 +57,7 @@ class Loginscreen extends Component {
 
   render() {
     return (
-      <div className="loginscreen">
+      <div className="loginscreen" >
         {this.state.loginscreen}
         <div>
           {this.state.loginmessage}
