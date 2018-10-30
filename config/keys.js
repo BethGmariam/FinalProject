@@ -2,7 +2,7 @@
 // our respective <dbuser> is first name all lowercase except the first initial
 // our respective <dbpassword> is finalproject1
 module.exports = {
-    mLabMongoURI:"mongodb://BethMongoose:munr21095@ds135233.mlab.com:35233/finalprojectdb",
+    mLabMongoURI:"mongodb://<dbuser>:<dbpassword>@ds135233.mlab.com:35233/finalprojectdb",
     localhostURI:"mongodb://localhost/finalprojectdb"
 }
 
