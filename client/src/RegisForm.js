@@ -13,10 +13,30 @@ import { Form, Text, Scope, TextArea, Option, Select } from 'informed';
     return basicValidation(value) || duplicateValidation( value, values.favthing )
   }
 
+ 
+
 class RegisForm extends Component {
+
+  state = {
+    first_name:'',
+    last_name:'',
+    phone:'',
+    emailAddress:'',
+    twitterAccount:'',
+    address:'',
+    postalcode:'',
+    province: '',
+    favthings: '',
+    interesthobby: '',
+    personality:''
+  }
 
     constructor (){
         super ();
+
+        this.handleClick = this.handleClick.bind(this);
+
+    this.setFormApi = this.setFormApi.bind(this);
 
         this.state={
             value: '',
@@ -26,35 +46,61 @@ class RegisForm extends Component {
     }
 
     handleInputChange = (evt) => {
-        this.setState({
-            value: evt.target.value
-        });
+      const { name, value } = evt.target;
+     this.setState({
+       [name]: value
+     });
     }
 
-    handleClick = () => {
+    handleClick = (evt) => {
+      evt.preventDefault();
+
+      let userData = {
+        first_name:this.state.first_name,
+        last_name:this.state.last_name,
+        phone:this.state.phone,
+        emailAddress:this.state.emailAddress,
+        twitterAccount:this.state.twitterAccount,
+        address:this.state.address,
+        postalcode:this.state.postalcode,
+        province: this.state.province,
+        favthings: this.state.favthings,
+        interesthobby: this.state.interesthobby,
+        personality:this.state.personality
+      }
+
         this.setState({
             displayValue: this.state.value, 
-            value: ''
+            value: '',
+            
+
         });
+        console.log(this.formApi.getState());
+        console.log(userData);
+    }
+
+    setFormApi(formApi) {
+      this.formApi = formApi;
     }
     
     render() {
-        console.log('render', this.state);
+        //console.log('render', this.state.name);
         return (
 
-            <div>
-
+<div>
 <h3>REGISTRATION FORM</h3>
   <h4>Please enter your personal details below:</h4>  
-  <Form id="complex-validate-form">
-  <Scope scope="personal details">
+  <Form getApi={this.setFormApi} >
+  
+
       <div>
-            <label htmlFor="first-name">First name:</label>
-            <Text field="first-name" id="first-name" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange}/>
+            <label htmlFor="first_name">First name:</label>
+            <Text field="first_name" name="first_name" id="first_name" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+            
       </div>
       <div>
-            <label htmlFor="last-name">Last name:</label>
-            <Text field="last-name" id="last-name" validate={basicValidation}value={this.state.value} v="true" onChange={this.handleInputChange} />
+            <label htmlFor="last_name">Last name:</label>
+            <Text field="last_name" name="last_name" id="last_name" validate={basicValidation}value={this.state.value} v="true" onChange={this.handleInputChange} />
       </div>
       <div>
             <label htmlFor="phone">Phone Number:</label>
@@ -93,60 +139,24 @@ class RegisForm extends Component {
                   <Option value="NL">NL</Option>
         </Select>
       </div>
-  </Scope>
+ 
 
 <h3>Tell us about yourself! The next section is to help your match figure out what to get you!</h3>
 
-  <div><h4>Please tell us 5 of your favourite things:</h4>
-    <div>  
-      <label htmlFor="favthing-0">Favourite thing 1:</label>
-      <Text field="favthing[0]" id="favthing-0" validate={favthingValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-    </div>
-    <div>
-      <label htmlFor="favthing-1">Favourite thing 2:</label>
-      <Text field="favthing[1]" id="favthing-1" validate={favthingValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-    </div>
-    <div>
-      <label htmlFor="favthing-2">Favourite thing 3:</label>
-      <Text field="friends[2]" id="favthing-2" validate={favthingValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-    </div>
-    <div>
-      <label htmlFor="favthing-3">Favourite thing 4:</label>
-      <Text field="friends[3]" id="favthing-3" validate={favthingValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-    </div>
-    <div>
-      <label htmlFor="favthing-4">Favourite thing 5:</label>
-      <Text field="friends[4]" id="favthing-4" validate={favthingValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-    </div>
+  <div>
+    <h4>Please tell us 5 of your favourite things in the text box below, separate them with a ',':</h4>
+    <TextArea field="favthings" id="favthings" value={this.state.value} v="true" onChange={this.handleInputChange} />
   </div>
 
 
-  <div><h4>Please tell us 5 of your interests or hobbies:</h4>
-    <div>  
-      <label htmlFor="interest-0">Interest/Hobby 1:</label>
-      <Text field="interest[0]" id="interest-0" validate={favthingValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-    </div>
-    <div>
-      <label htmlFor="interest-1">Interest/Hobby 2:</label>
-      <Text field="interest[1]" id="interest-1" validate={favthingValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-    </div>
-    <div>
-      <label htmlFor="interest-2">Interest/Hobby 3:</label>
-      <Text field="interest[2]" id="interest-2" validate={favthingValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-    </div>
-    <div>
-      <label htmlFor="interest-3">Interest/Hobby 4:</label>
-      <Text field="interest[3]" id="interest-3" validate={favthingValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-    </div>
-    <div>
-      <label htmlFor="interest-4">Interest/Hobby 5:</label>
-      <Text field="interest[4]" id="interest-4" validate={favthingValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-    </div>
+  <div>
+    <h4>Please tell us 5 of your interests or hobbies in the text box below, separate them with a ',':</h4> 
+    <TextArea field="interesthobby" id="interesthobby" value={this.state.value} v="true" onChange={this.handleInputChange} validate={favthingValidation} />
   </div>
 
 <div>
    <label htmlFor="personality"> <h4>Please type at least 100 words and tell us about yourself, this information will be used to generate a personality profile for your match:</h4></label>
-  <TextArea field="personality" id="personality" value={this.state.value} v="true" onChange={this.handleInputChange} />
+  <TextArea field="personality" id="personality" value={this.state.value} v="true" onChange={this.handleInputChange} validate={favthingValidation} />
 </div>
 
 <div>
@@ -158,7 +168,8 @@ class RegisForm extends Component {
 
 
 </Form>
-      </div>
+</div>
+
 );
 }
 }
