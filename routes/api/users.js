@@ -2,46 +2,37 @@
 // var express = require('express');
 const router = require("express").Router();
 var User = require("../../models/User");
-// var express = require('express');
-// var mongoose = require("mongoose");
-// var session = require('express-session');
+const usersController = require("../../controllers/usersController");
 
 
-// mongoose.connect('mongodb://localhost/finalprojectdb').then(() => {
-// console.log("Connected to Database");
-// }).catch((err) => {
-//     console.log("Not Connected to Database ERROR! ", err);
+
+router.route("/login")
+  .post(usersController.loginFn)
+
+// router.post("/login", function(req, res) {
+//   var email = req.body.email;
+//   var password = req.body.password;
+
+//     User.findOne({email: email}, function(err, user) {
+//       if (err) {
+//         console.log(err);
+//         return res.status(500).send();
+//       }
+
+//       if (!user) {
+//         return res.status(404).send();
+//       }
+
+//       user.comparePassword(password, function(err, isMatch) {
+//         if (isMatch && isMatch == true) {
+//           req.session.user = user;
+//           return res.status(200).send("loggedin");
+//         } else {
+//           return res.status(401).send("unauth");
+//         }
+//       });
+//     })
 // });
-
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
-
-router.post("/login", function(req, res) {
-  var email = req.body.email;
-  var password = req.body.password;
-
-    User.findOne({email: email}, function(err, user) {
-      if (err) {
-        console.log(err);
-        return res.status(500).send();
-      }
-
-      if (!user) {
-        return res.status(404).send();
-      }
-
-      user.comparePassword(password, function(err, isMatch) {
-        if (isMatch && isMatch == true) {
-          req.session.user = user;
-          return res.status(200).send("loggedin");
-        } else {
-          return res.status(401).send("unauth");
-        }
-      });
-    })
-});
 
 
 router.get("/logout", function(req, res) {

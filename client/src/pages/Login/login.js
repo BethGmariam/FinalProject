@@ -10,8 +10,8 @@ import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 class Login extends Component {
 
   state={
-  users:[],
-  username:'',
+  // users:[],
+  email:'',
   password:''
   }
 
@@ -25,7 +25,8 @@ class Login extends Component {
 
 handleFormSubmit = (event)=>{
    event.preventDefault();
-   this.validateUserFn();
+   API.getLogin(this.state)
+  //  this.validateUserFn();
    
  }
 
@@ -79,7 +80,7 @@ render() {
           </div> */}
            <form style={{margin:"100px 25%",width:"50%",border:"2px dotted blue"}}>
                 <TextField
-                  name="username"
+                  name="email"
                   hintText="Enter your Username"
                   autoComplete="username"
                   floatingLabelText="Username"

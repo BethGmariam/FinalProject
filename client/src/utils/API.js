@@ -38,6 +38,12 @@ export default {
       saveUser: function(userData) {
         return axios.post("/api/users", userData);
       },
+
+      getLogin: function(userData) {
+        return axios.get("/login", userData)
+      },
+
+
   search: function(query) {
   	console.log('full query: '+ BASEURL + APIKEY + queryFix + query);
     return axios.get(BASEURL + APIKEY + queryFix + query);
