@@ -32,16 +32,15 @@ class Registration extends Component {
     first_name: this.state.first_name,
     last_name:this.state.last_name,
     email:this.state.email,
-    username:this.state.username,
     password:this.state.password,
     }
 
-    // API.saveUser(userData)
-    // .then(res => {
-    //   console.log(res);
-    //  if(res.data.code === 200){console.log("registration successfull");}
-    // })
-    // .catch(err => console.log(err))
+    API.saveUser(userData)
+    .then(res => {
+      console.log(res);
+     if(res.data.code === 200){console.log("registration successfull");}
+    })
+    .catch(err => console.log(err))
 
   }
     
@@ -75,14 +74,7 @@ class Registration extends Component {
                   onChange={this.handleInputChange}
                   />
                 <br/>
-                <TextField
-                  name="username"
-                  hintText="Provide username you like to use"
-                  floatingLabelText="User name"
-                  autoComplete="username"
-                  onChange={this.handleInputChange}
-                  />
-                <br/>
+
                 <TextField
                   name="password"
                   type = "password"
@@ -92,7 +84,7 @@ class Registration extends Component {
                   onChange={this.handleInputChange}
                   />
                 <br/>
-
+      
                 <RaisedButton label="Register" primary={true} style={{margin:15}} onClick={this.handleFormSubmit}/>
                 <RaisedButton label="Cancel" primary={true} style={{margin:15}} onClick={this.handleFormSubmit}/>
 

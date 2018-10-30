@@ -12,14 +12,10 @@ var UserSchema = new mongoose.Schema({
     type:String,
     required:true
   },
-  // email: {
-  //   type: String,
-  //   unique: true,
-  //   required: true,
-  //   trim: true
-  // },
     email: {
         type: String,
+        unique: true,
+        required: true,
         default: "chocolate"
       },
       password: {

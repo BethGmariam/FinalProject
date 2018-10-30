@@ -9,7 +9,6 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "seedItem": "node scripts/itemSeedDB.js",
     "seedUser": "node scripts/userSeedDB.js"
   },
   "repository": {

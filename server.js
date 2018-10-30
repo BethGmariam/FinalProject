@@ -15,10 +15,8 @@ mongoose
 .then(()=>console.log("MongoDb connected...")) // once key is added to config folder keys.js file, server should connect to mLab finalprojectdb
 .catch(err => console.log(err));
 
-mongoose.set('useCreateIndex', true);
+mongoose.set('useCreateIndex', true);// add for DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
 
-// app.use(session({secret:“3243242333”, resave: false, saveUninitialized: true}));
-//use sessions for tracking logins
 // for monitoring users
 const session = require('express-session');
 // const MongoStore = require('connect-mongo')(session);
