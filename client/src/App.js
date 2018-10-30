@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Registration from './pages/Registration/registration';
+import Registration from './pages/Registration/Registration';
 import './App.css';
 import Loginscreen from './pages/users/Loginscreen'
 // Needed for onTouchTap
