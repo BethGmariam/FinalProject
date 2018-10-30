@@ -1,48 +1,54 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";// changed from Link to NavLink to get activeStyle option for styling
 
 const NavTabs = () => (
   <ul className="nav nav-tabs">
- 
-    <li className="nav-item">
-      <Link
-        to="/landing"
+
+   <li className="nav-item">
+      <NavLink
+        to="/"
         className={
-          window.location.pathname === "/landing" ? "nav-link active" : "nav-link"
+          window.location.pathname === "/" ? "nav-link active" : "nav-link"
         }
+        activeStyle={{color:"green"}}
       >
-        Landing 
-      </Link>
+        Home
+      </NavLink>
     </li>
     <li className="nav-item">
-      <Link
+      <NavLink
         to="/registeration"
         className={
           window.location.pathname === "/registeration" ? "nav-link active" : "nav-link"
         }
+        activeStyle={{color:"green"}}
+
       >
         Register
-      </Link>
+      </NavLink>
     </li>
     <li className="nav-item">
-      <Link
+      <NavLink
         to="/login"
         className={
           window.location.pathname === "/login" ? "nav-link active" : "nav-link"
         }
+        activeStyle={{color:"green"}}
       >
        Login
-      </Link>
+      </NavLink>
     </li>
     <li className="nav-item">
-      <Link
+      <NavLink
         to="/dashboard"
         className={
           window.location.pathname === "/dashboard" ? "nav-link active" : "nav-link"
         }
+        activeStyle={{color:"green"}}
+
       >
        Dashboard
-      </Link>
+      </NavLink>
     </li>
 
   </ul>
@@ -50,32 +56,4 @@ const NavTabs = () => (
 
 export default NavTabs;
 
-// import React from "react";
-
-// const NavTabs = props => (
-//   <ul className="nav nav-tabs">
-//     <li className="nav-item">
-//       <a onClick={() => props.handlePageChange("Landing")} className="nav-link">
-//         Landing
-//       </a>
-//     </li>
-//     <li className="nav-item">
-//       <a onClick={() => props.handlePageChange("Registration")} className="nav-link">
-//         Registration
-//       </a>
-//     </li>
-//     <li className="nav-item">
-//       <a onClick={() => props.handlePageChange("Login")} className="nav-link">
-//         Login
-//       </a>
-//     </li>
-//     <li className="nav-item">
-//       <a onClick={() => props.handlePageChange("Dashboard")} className="nav-link">
-//         Dashboard
-//       </a>
-//     </li>
-//   </ul>
-// );
-
-// export default NavTabs;
 

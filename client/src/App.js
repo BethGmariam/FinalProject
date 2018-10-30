@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import NavTabs from "./pages/NavTabs";
 import Landing from "./pages/Landing";
 import RegisForm from "./pages/RegisForm";
@@ -13,10 +13,10 @@ const App = () => (
   <Router>
     <div>
       <NavTabs />
-      <Route exact path="/landing" component={Landing} />
+      <Route exact path="/" component={Landing}/>
       <Route exact path="/registeration" component={RegisForm} />
-      <Route exact path="/login" component={Login} />
       <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/login" component={Login} />
 
     </div>
   </Router>
