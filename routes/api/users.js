@@ -13,8 +13,8 @@ router.route("/:id")
 .put(usersController.update)
 .delete(usersController.remove);
 
-router.route("/register")
-.post(usersController.create);
+// router.route("/register")
+// .post(usersController.create);
 
 
 

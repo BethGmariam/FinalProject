@@ -6,7 +6,7 @@ var UserSchema = new mongoose.Schema({
 // fields created for login//
      email: {
         type: String,
-        // unique: true,
+        unique: true,
         default: "chocolate"
       },
       password: {
@@ -25,11 +25,11 @@ var UserSchema = new mongoose.Schema({
 
 first_name:{
   type:String,
-  required:true
+  required:false
 },
 last_name:{
   type:String,
-  required:true
+  required:false
 },
 
 phone:{

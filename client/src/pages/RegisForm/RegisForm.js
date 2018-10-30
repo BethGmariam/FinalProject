@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Text, Scope, TextArea, Option, Select } from 'informed';
-import API from "../../utils/API";// for API end points see utils folder
+// import API from "../../utils/API";// for API end points see utils folder
+import axios from 'axios';
+
 
 
   const basicValidation = value => {
@@ -15,7 +17,6 @@ import API from "../../utils/API";// for API end points see utils folder
     return basicValidation(value) || duplicateValidation( value, values.favthing )
   }
 
- 
 
 class RegisForm extends Component {
 
@@ -24,6 +25,7 @@ class RegisForm extends Component {
     last_name:'',
     phone:'',
     email:'',
+    password:'',
     twitterAccount:'',
     address:'',
     postalcode:'',
@@ -62,6 +64,7 @@ class RegisForm extends Component {
         last_name:this.state.last_name,
         phone:this.state.phone,
         email:this.state.email,
+        password:this.state.password,
         twitterAccount:this.state.twitterAccount,
         address:this.state.address,
         postalcode:this.state.postalcode,
@@ -71,16 +74,16 @@ class RegisForm extends Component {
         personality:this.state.personality
       }
 
-      //====================
-      API.saveUser(userData)
-      .then(res => {
-        console.log(res);
-       if(res.data.code === 200){console.log("registration successfull");}
+      //================================= 
+
+      axios.post("/registeration",userData)//added to store into Users model
+      .then(function (response) {
+        console.log(response);
+        if(response.data.code === 200){
+        console.log("Registeration successfull");
+        }
       })
-      .catch(err => console.log(err))
-      //====================
-
-
+      //===================================
         this.setState({
             displayValue: this.state.value, 
             value: '',
@@ -124,6 +127,10 @@ class RegisForm extends Component {
       <div>
             <label htmlFor="email">Email Address:</label>
             <Text field="email" id="email" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+      </div>
+      <div>
+            <label htmlFor="password"> Password:</label>
+            <Text field="password" id="password" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
       </div>
       <div>
             <label htmlFor="twitterAccount">Twitter Account:</label>
