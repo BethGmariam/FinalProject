@@ -4,7 +4,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import API from "../../utils/API";
-import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 
 class Login extends Component {

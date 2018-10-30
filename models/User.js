@@ -3,19 +3,10 @@ const bcrypt = require('bcrypt');
   SALT_WORK_FACTOR = 10;
 
 var UserSchema = new mongoose.Schema({
-
-    first_name:{
-    type:String,
-    required:true
-  },
-  last_name:{
-    type:String,
-    required:true
-  },
-    email: {
+// fields created for login//
+     email: {
         type: String,
-        unique: true,
-        required: true,
+        // unique: true,
         default: "chocolate"
       },
       password: {
@@ -28,7 +19,57 @@ var UserSchema = new mongoose.Schema({
       signUpdate: {
         type: Date,
         default: Date.now()
-      }
+      },  // end of field created for login by Zack
+
+// additional fields created for register//
+
+first_name:{
+  type:String,
+  required:true
+},
+last_name:{
+  type:String,
+  required:true
+},
+
+phone:{
+  type:String,
+  required:false
+},
+
+twitterAccount:{
+  type:String,
+  required:false
+},
+
+address:{
+  type:String,
+  required:false
+},
+
+postalcode:{
+  type:String,
+  required:false
+},
+
+province:{
+  type:String,
+  required:false
+},
+
+favthings:{
+  type:String,
+  required:false
+},
+interesthobby:{
+  type:String,
+  required:false
+},
+personality:{
+  type:String,
+  required:false
+} // end of field created for formRegistration by Mel
+
 })
 
 

@@ -3,17 +3,6 @@ import { Link } from "react-router-dom";
 
 const NavTabs = () => (
   <ul className="nav nav-tabs">
-
-      {/* <li className="nav-item">
-      <Link
-        to="/"
-        className={
-          window.location.pathname === "/" ? "nav-link active" : "nav-link"
-        }
-      >
-        Home 
-      </Link>
-    </li> */}
  
     <li className="nav-item">
       <Link
@@ -22,14 +11,14 @@ const NavTabs = () => (
           window.location.pathname === "/landing" ? "nav-link active" : "nav-link"
         }
       >
-        Landing page 
+        Landing 
       </Link>
     </li>
     <li className="nav-item">
       <Link
-        to="/register"
+        to="/registeration"
         className={
-          window.location.pathname === "/register" ? "nav-link active" : "nav-link"
+          window.location.pathname === "/registeration" ? "nav-link active" : "nav-link"
         }
       >
         Register
@@ -55,7 +44,6 @@ const NavTabs = () => (
        Dashboard
       </Link>
     </li>
-
 
   </ul>
 );
