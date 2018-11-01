@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { RadioGroup, Radio, Form, Text, TextArea, Option, Select } from 'informed';
+import './RegisForm.css';
 
   const basicValidation = value => {
     return !value || value.length < 2 ? 'Field must be longer than two characters' : null;
