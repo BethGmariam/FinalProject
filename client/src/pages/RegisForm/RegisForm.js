@@ -21,7 +21,8 @@ class RegisForm extends Component {
     first_name:'',
     last_name:'',
     phone:'',
-    emailAddress:'',
+    email:'',
+    password:'',
     twitterAccount:'',
     address:'',
     postalcode:'',
@@ -59,7 +60,8 @@ class RegisForm extends Component {
         first_name:this.state.first_name,
         last_name:this.state.last_name,
         phone:this.state.phone,
-        emailAddress:this.state.emailAddress,
+        email:this.state.email,
+        password:this.state.password,
         twitterAccount:this.state.twitterAccount,
         address:this.state.address,
         postalcode:this.state.postalcode,
@@ -116,8 +118,12 @@ class RegisForm extends Component {
             <Text field="phone" id="phone" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
       </div>
       <div>
-            <label htmlFor="emailAddress">Email Address:</label>
-            <Text field="emailAddress" id="emailAddress" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+            <label htmlFor="email">Email Address:</label>
+            <Text field="email" id="email" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+      </div>
+      <div>
+            <label htmlFor="password">Password:</label>
+            <Text field="password" id="password" type="password" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
       </div>
       <div>
             <label htmlFor="twitterAccount">Twitter Account:</label>
@@ -130,20 +136,20 @@ class RegisForm extends Component {
       <li>
           <Radio value="20" id="quant1" />
           <label htmlFor="radio1">$0 - $20</label>
-      <li>
       </li>
+      <li>
           <Radio value="40" id="quant2" />
           <label htmlFor="radio2">$21 - $40</label>
-      <li>
       </li>
+      <li>
           <Radio value="60" id="quant3" />
           <label htmlFor="radio3">$41 - $60</label>
-      <li>
       </li>
+      <li>
           <Radio value="80" id="quant5" />
           <label htmlFor="radio4">$61 - $80</label>
-          <li>
       </li>
+      <li>
           <Radio value="1000" id="quant6" />
           <label htmlFor="radio5">$81 - $110</label>
       </li>

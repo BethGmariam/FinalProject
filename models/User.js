@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
+require('mongoose-type-email');// to validate email address
 const bcrypt = require('bcrypt');
   SALT_WORK_FACTOR = 10;
 
 var UserSchema = new mongoose.Schema({
 // fields created for login//
-     email: {
-        type: String,
-        unique: true,
-        default: "chocolate"
+      email: {
+        type:mongoose.SchemaTypes.Email,// mongoose email validator
+        required:true,
+        allowBlank: false,
+        unique: true
       },
       password: {
-        type: String,
+        type: String
       },
       isDeleted: {
         type: Boolean,
@@ -19,9 +21,9 @@ var UserSchema = new mongoose.Schema({
       signUpdate: {
         type: Date,
         default: Date.now()
-      },  // end of field created for login by Zack
+      },  
 
-// additional fields created for register//
+// additional fields created for registeration
 
 first_name:{
   type:String,
@@ -68,7 +70,7 @@ interesthobby:{
 personality:{
   type:String,
   required:false
-} // end of field created for formRegistration by Mel
+} // end of field created for registeration
 
 })
 
@@ -98,68 +100,4 @@ UserSchema.methods.comparePassword = function(candidatePassword, callback) {
     });
 };
 
-
-
-
   module.exports = mongoose.model('User', UserSchema);
-  //module.exports = User;
-
-
-
-  // UserSchema.methods.generateHash = function(password) {
-  //     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-  //   };
-  //   UserSchema.methods.validPassword = function(password) {
-  //     return bcrypt.compareSync(password, this.password);
-  //   };
-
-
-
-
-
-
-
-
-
-
-
-
-//============================
-
-// const mongoose = require('mongoose');
-// // const mongooseBcrypt = require('mongoose-bcrypt');
-// const UserSchema = new mongoose.Schema({
-
-//   first_name:{
-//     type:String,
-//     required:true
-//   },
-//   last_name:{
-//     type:String,
-//     required:true
-//   },
-//   email: {
-//     type: String,
-//     unique: true,
-//     required: true,
-//     trim: true
-//   },
-//   username: {
-//     type: String,
-//     unique: true,
-//     required: false,
-//     trim: true,
-//     index: { unique: true }
-//   },
-//   date:{
-//     type:Date,
-//     default:Date.now()
-// }
-// });
-
-// UserSchema.plugin(require('mongoose-bcrypt'));
-
-
-// const User = mongoose.model('User', UserSchema);
-// module.exports = User;
-
