@@ -12,8 +12,8 @@
 ## Additional Instructions
 
 There are two independent package.json files:
-1. one inside client folder for express app only.
-2. on main folder the main package.json where we add all required modules for server.
+1. one inside client folder for react (front end) only.
+2. on main folder the main package.json where we add all required modules for server side.
 
 Note: when installing modules make sure we add the modules in the proper package.json.
 
