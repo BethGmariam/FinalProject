@@ -14,7 +14,7 @@ const App = () => (
     <div>
       <NavTabs />
       <Route exact path="/" component={Landing}/>
-      <Route exact path="/registeration" component={RegisForm} />
+      <Route exact path="/registration" component={RegisForm} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/login" component={Login} />
 
