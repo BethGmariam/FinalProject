@@ -219,4 +219,3 @@ class RegisForm extends Component {
 }
 
 export default RegisForm;
-

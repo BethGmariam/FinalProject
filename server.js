@@ -73,7 +73,7 @@ var db = require("./models");
     return res.status(200).send("Welcome to logged in state");
   }) //must be logged in to see thuis apge
   
-  app.post("/registeration", function(req, res) {
+  app.post("/registration", function(req, res) {
     db.User
     .create(req.body)
     .then(userData => {
