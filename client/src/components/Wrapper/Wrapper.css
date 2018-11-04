@@ -1,5 +1,6 @@
 .wrapper {
   padding-top: 50px;
+  margin-top: 30px;
   background: #ECEFF1;
   height: 100%;
   /* display: flex; */
@@ -8,6 +9,6 @@
   justify-content: space-around;
   align-content: flex-start;
   overflow: auto;
-  margin-left:10%;
-  margin-right:10%;
+  margin-left:5%;
+  margin-right:5%;
 }

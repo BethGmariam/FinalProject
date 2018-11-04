@@ -102,7 +102,7 @@ class RegisForm extends Component {
 
 <div>
 <h3>REGISTRATION FORM</h3>
-  <h4>Please enter your personal details below:</h4>  
+  <h4>Please enter your personal details below:</h4>
   <Form>
      <div>
             <label htmlFor="first_name">First name:</label>

@@ -1,8 +1,10 @@
 import React from "react";
+import "./Landing.css"
+import "../../components/ImageCard";
 
 const Landing = () => (
-  <div>
-    <h1 style={{color:"red"}}>Landing Page.... About us?</h1>
+  <div id = "landing-content">
+    <h2 style={{color:"red"}}>Landing Page.... About us?</h2>
     <p>
       Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer gravida dui mauris,
       ut interdum nunc egestas sed. Aenean sed mollis diam. Nunc aliquet risus ac finibus porta. Nam
