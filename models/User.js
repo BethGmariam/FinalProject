@@ -36,27 +36,32 @@ last_name:{
 
 phone:{
   type:String,
-  required:false
+  required:false,
+  default:"647-122-3344"
 },
 
 twitterAccount:{
   type:String,
-  required:false
+  required:false,
+  default:"abcd1234"
 },
 
 address:{
   type:String,
-  required:false
+  required:false,
+  default:"Toronto Canada"
 },
 
 postalcode:{
   type:String,
-  required:false
+  required:false,
+  default:"M4C5A2"
 },
 
 province:{
   type:String,
-  required:false
+  required:false,
+  default:"ON"
 },
 
 favthings:{
@@ -70,7 +75,33 @@ interesthobby:{
 personality:{
   type:String,
   required:false
-} // end of field created for registeration
+}, // end of field created for registeration
+
+      // fields added for watsonAnalysis
+        
+        Openness:{
+          type:Number
+        },
+        Conscientiousness:{
+          type:Number
+        },
+        Extraversion:{
+          type:Number
+        },
+        Agreeableness:{
+          type:Number
+        },
+        EmotionalRange:{
+          type:Number
+        },
+        PersonalityAnalysed:{
+          type:Boolean
+
+        } // end of watsonAnalysis field
+
+
+
+
 
 })
 
