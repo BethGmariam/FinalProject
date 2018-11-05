@@ -1,5 +1,5 @@
 .wrapper {
-  padding-top: 50px;
+  padding-top: 40px;
   height: 100%;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -7,4 +7,8 @@
   overflow: auto;
   margin-left:5%;
   margin-right:5%;
+  background: white;
+  border: 5px solid rgb(117, 11, 11);
+  border-radius: 50px;
+  margin-bottom: 30px
 }

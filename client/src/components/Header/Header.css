@@ -1,20 +1,24 @@
 #main-title {
     text-align: center;
     font-family: 'Acme', sans-serif;
-    font-size: 320%;
+    /* font-family: 'Bungee Inline', cursive; */
+    font-size: 330%;
     color: rgba(40, 80, 40, .8);
     /* color: rgb(109, 51, 92); */
     /* color: #6B0D0B; */
     background: white;
-    padding: 20px 25px 20px 25px;
-    letter-spacing: .15em;
+    padding: 25px 10px 25px 10px;
+    letter-spacing: .08em;
+    word-spacing: 15px;
     /* background: rgba(240, 142, 15, 0.7); */
     width: 85%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 40px;
-    border-radius: 80px;
-    border: 8px solid rgb(206, 87, 87)
+    margin-bottom: 50px;
+    border-radius: 100px;
+    border-right: 15px solid rgb(117, 11, 11);
+    border-bottom: 15px solid rgb(117, 11, 11);
+    /* border-left: 15px solid rgb(206, 87, 87) */
 }
 
 

@@ -73,12 +73,13 @@ class RegisForm extends Component {
 
         this.setState({
             displayValue: this.state.value, 
-            value: '',
-            
-
+            value: '',            
         });
+
         //console.log(this.formApi.getState());
         console.log(userData);
+
+        
     }
 
     setFormApi(formApi) {
@@ -94,40 +95,40 @@ class RegisForm extends Component {
       // exclude newline with a start spacing  
       str1 = str1.replace(/\n /,"\n");
       document.getElementById("noofwords").value = str1.split(' ').length;
-    } 
+    }
+
     
     render() {
         //console.log('render', this.state.name);
         return (
 
 <div id = "registration-form">
-    <h3> Giver's Information: </h3>
-      <h4> Please enter your personal details below: </h4>
+    <h3> Giver's Personal Information: </h3>
       <Form>
-        <div class = "question">
-                <label htmlFor="first_name">First name:</label>
-                <Text field="first_name" name="first_name" class="question-field" id="first_name"  validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+        <div className = "question">
+                <label htmlFor="first_name"> First Name: </label>
+                <Text field="first_name" name="first_name" className="question-field" id="first_name"  validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
                 
           </div>
-          <div class = "question">
+          <div className = "question">
                 <label htmlFor="last_name">Last name:</label>
-                <Text field="last_name" name="last_name" class="question-field" id="last_name" validate={basicValidation}value={this.state.value} v="true" onChange={this.handleInputChange} />
+                <Text field="last_name" name="last_name" className="question-field" id="last_name" validate={basicValidation}value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div class = "question">
+          <div className = "question">
                 <label htmlFor="phone">Phone Number:</label>
-                <Text field="phone" class="question-field" id="phone" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+                <Text field="phone" className="question-field" id="phone" placeholder="XXX-XXX-XXXX" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div class = "question">
+          <div className = "question">
                 <label htmlFor="email">Email Address:</label>
-                <Text field="email" class="question-field" id="email" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+                <Text field="email" className="question-field" id="email" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div class = "question">
-                <label htmlFor="password">Password:</label>
-                <Text field="password" class="question-field" id="password" type="password" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+          <div className = "question">
+                <label htmlFor="password"> Password:</label>
+                <Text field="password" className="question-field" id="password" type="password" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div class = "question">
+          <div className = "question">
                 <label htmlFor="twitterAccount">Twitter Account:</label>
-                <Text field="twitterAccount" class="question-field" id="twitterAccount" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+                <Text field="twitterAccount" className="question-field" id="twitterAccount" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
 
           <ul>
@@ -155,16 +156,16 @@ class RegisForm extends Component {
           </li>
             </RadioGroup>
           </ul>
-          <div class = "question">
+          <div className = "question">
                 <label htmlFor="address">Home Mailing Address:</label>
-                <Text field="address" class="question-field" id="address" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+                <Text field="address" className="question-field" placeholder="Unit # / Street Name / City" id="address" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div class = "question">
+          <div className = "question">
                 <label htmlFor="postalcode">Postal Code:</label>
-                <Text field="postalcode" class="question-field" id="postalcode" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+                <Text field="postalcode" className="question-field" placeholder="X1XX1X" id="postalcode" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div class = "question"> 
-            <label htmlFor="select-province">Province:</label>
+          <div className = "question"> 
+            <label htmlFor="select-province"> Province:</label>
               <Select field="province" id="select-province" value={this.state.value} onChange={this.handleInputChange} v="true">
                   <Option value="" disabled> Select One...
                   </Option>
@@ -185,22 +186,26 @@ class RegisForm extends Component {
     <h3> Interests &amp; Personality: </h3>
 
       <div>
-        <h4>Please tell us 5 of your favourite things in the text box below, separate them with a ',':</h4>
+        <h4>Please tell us 5 of your favourite things in the text box below, separate them with a ',' </h4>
         <TextArea field="favthings" id="favthings" value={this.state.value} v="true" onChange={this.handleInputChange} />
       </div>
 
 
       <div>
-        <h4>Please tell us 5 of your interests or hobbies in the text box below, separate them with a ',':</h4> 
+        <h4>Please tell us 5 of your interests or hobbies in the text box below, separate them with a ',' </h4> 
         <TextArea field="interesthobby" id="interesthobby" value={this.state.value} v="true" onChange={this.handleInputChange} validate={favthingValidation} />
       </div>
 
     <div>
-      <label htmlFor="personality"> <h4>Please type at least 100 words and tell us about yourself, this information will be used to generate a personality profile for your match:</h4></label>
-      <TextArea field="personality" id="personality" value={this.state.value} v="true" onChange={this.handleInputChange} validate={favthingValidation} />
+        <label htmlFor="personality"> <h4>In 100 words or less, please tell us about yourself. This information will be used to generate a personality profile for your match - e.g. write about your day, hobbies, goals, a memory, etc.. </h4></label>
+        <TextArea field="personality" id="personality" value={this.state.value} v="true" onChange={this.handleInputChange} validate={favthingValidation} />
     </div>
-    <button type="button" name="Convert" value="No. of Words" onClick={this.countWords} >No. of Words</button>
-    <input id= "noofwords" type="text" size="12"  readOnly={true} defaultValue= "" />  
+
+    <div id = "word-count">
+      <button id = "count-btn" type="button" name="Convert" value="No. of Words" onClick={this.countWords} > Click here for Word Count </button>
+      
+      <input id= "noofwords" type="text" size="12"  readOnly={true} defaultValue= "" />  
+    </div>
 
     <div>
       <button type="submit" onClick={this.handleClick}>
@@ -208,8 +213,6 @@ class RegisForm extends Component {
       </button>
       </div>
       <div><p></p></div>
-
-    <p> Thank you in advance for joining our Community of Givers!</p>
 
     </Form>
 </div>
