@@ -6,19 +6,22 @@ import RegisForm from "./pages/RegisForm";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Nav from "./components/Nav";
-import Header from "./components/Header"
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+// import ImageCard from "./components/ImageCard";
 
 import './App.css'
 
 const App = () => (
   <Router>
       <Wrapper>
-      <Header>Gift Exchange</Header>
+      <Header> Secret Santa Gift Exchange </Header>
       <Nav />
-      <Route exact path="/" component={Landing}/>
+      <Route exact path="/" component={Landing} />
       <Route exact path="/registration" component={RegisForm} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/login" component={Login} />
+      <Footer/>
       </Wrapper>
   </Router>
 );
