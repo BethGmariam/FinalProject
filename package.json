@@ -5,12 +5,17 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run dev",
+    "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "seedUser": "node scripts/userSeedDB.js"
+    "seedUser": "node scripts/userSeedDB.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
+  "engines": {
+    "node": "v10.11.0",
+    "npm":"6.4.1"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BethGmariam/FinalProject.git"
@@ -32,14 +37,13 @@
     "mongoose": "^5.3.9",
     "mongoose-bcrypt": "^1.6.0",
     "mongoose-type-email": "^1.0.9",
-
+    "path": "^0.12.7",
+    "personality-text-summary": "^2.2.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.83.0",
-    "personality-text-summary": "^2.2.0",
     "watson-developer-cloud": "^3.13.0"
-
   },
   "devDependencies": {
     "nodemon": "^1.18.4"

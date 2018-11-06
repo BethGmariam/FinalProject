@@ -3,6 +3,7 @@ const mongoose = require("mongoose");//ORM for mongoDB
 const bodyParser = require("body-Parser");//body of post request
 const mLabMongoURI = require("./config/keys").mLabMongoURI;//mongoDb connection key to mLab
 const routes = require("./routes");// get routes
+const path = require("path")
 
 const app = express();
 
@@ -32,6 +33,11 @@ app.use(session({
 
 // use routes from routes folder index.js
 app.use(routes);
+
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 const PORT = process.env.PORT || 5000;
 
