@@ -14,8 +14,8 @@
   },
   "engines": {
     "node": "v10.11.0",
-    "npm":"6.4.1"
-},
+    "npm": "6.4.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BethGmariam/FinalProject.git"
