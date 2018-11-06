@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Text, Scope, TextArea, Option, Select } from 'informed';
-import API from "../../utils/API";// for API end points see utils folder
+import { RadioGroup, Radio, Form, Text, TextArea, Option, Select } from 'informed';
+import './RegisForm.css';
+import API from "../../utils/API";// to connect form to db
+
 
   const basicValidation = value => {
     return !value || value.length < 2 ? 'Field must be longer than two characters' : null;
@@ -29,7 +32,8 @@ class RegisForm extends Component {
     province: '',
     favthings: '',
     interesthobby: '',
-    personality:''
+    personality:'',
+    amountToSpend:0
   }
 
     constructor (){
@@ -68,8 +72,10 @@ class RegisForm extends Component {
         province: this.state.province,
         favthings: this.state.favthings,
         interesthobby: this.state.interesthobby,
-        personality:this.state.personality
+        personality:this.state.personality,
+        amountToSpend:parseInt(this.state.amountToSpend)
       }
+ console.log(evt.target.value);
 
 
       API.registerFn(this.state)
@@ -82,16 +88,24 @@ class RegisForm extends Component {
             value: '',
 
 
+
         });
         console.log(this.formApi.getState());
         console.log(userData);
+
+ //======================================================== add user data to db ==================
+API.saveUser(userData).then((res)=>{
+  console.log(res);
+
+});
+//======================================================== add user data to db  ==================
+        
+
     }
 
     setFormApi(formApi) {
       this.formApi = formApi;
     }
-
-
 
 
     render() {
@@ -103,6 +117,93 @@ class RegisForm extends Component {
       <h4>Please enter your personal details below:</h4>
       <Form getApi={this.setFormApi} >
 
+<div id = "registration-form">
+    <h3> Giver's Personal Information: </h3>
+      <Form>
+        <div className = "question">
+                <label htmlFor="first_name"> First Name: </label>
+                <Text field="first_name" name="first_name" className="question-field" id="first_name"  validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+                
+          </div>
+          <div className = "question">
+                <label htmlFor="last_name">Last name:</label>
+                <Text field="last_name" name="last_name" className="question-field" id="last_name" validate={basicValidation}value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+          <div className = "question">
+                <label htmlFor="phone">Phone Number:</label>
+                <Text field="phone" className="question-field" id="phone" placeholder="XXX-XXX-XXXX" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+          <div className = "question">
+                <label htmlFor="email">Email Address:</label>
+                <Text field="email" className="question-field" id="email" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+          <div className = "question">
+                <label htmlFor="password"> Password:</label>
+                <Text field="password" className="question-field" id="password" type="password" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+          <div className = "question">
+                <label htmlFor="twitterAccount">Twitter Account:</label>
+                <Text field="twitterAccount" className="question-field" id="twitterAccount" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+          
+          <div className = "question">
+                <label htmlFor="amountToSpend">Amount To Spend:</label>
+                <Text field="amountToSpend" className="question-field" id="amountToSpend" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+
+          <ul>
+            <RadioGroup field="amountToSpend">
+            <label>Amount to spend:   </label>
+          <li>
+              <Radio value="20" id="quant1" />
+              <label htmlFor="radio1">$0 - $20</label>
+          </li>
+          <li>
+              <Radio value="40" id="quant2" />
+              <label htmlFor="radio2">$21 - $40</label>
+          </li>
+          <li>
+              <Radio value="60" id="quant3" />
+              <label htmlFor="radio3">$41 - $60</label>
+          </li>
+          <li>
+              <Radio value="80" id="quant5" />
+              <label htmlFor="radio4">$61 - $80</label>
+          </li>
+          <li>
+              <Radio value="1000" id="quant6" />
+              <label htmlFor="radio5">$81 - $110</label>
+          </li>
+            </RadioGroup>
+          </ul>
+          <div className = "question">
+                <label htmlFor="address">Home Mailing Address:</label>
+                <Text field="address" className="question-field" placeholder="Unit # / Street Name / City" id="address" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+          <div className = "question">
+                <label htmlFor="postalcode">Postal Code:</label>
+                <Text field="postalcode" className="question-field" placeholder="X1XX1X" id="postalcode" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+          <div className = "question"> 
+            <label htmlFor="select-province"> Province:</label>
+              <Select field="province" id="select-province" value={this.state.value} onChange={this.handleInputChange} v="true">
+                  <Option value="" disabled> Select One...
+                  </Option>
+                      <Option value="ON">ON</Option>
+                      <Option value="QC">QC</Option>
+                      <Option value="NS">NS</Option>
+                      <Option value="NB">NB</Option>
+                      <Option value="MB">MB</Option>
+                      <Option value="BC">BC</Option>
+                      <Option value="PE">PE</Option>
+                      <Option value="SK">SK</Option>
+                      <Option value="AB">AB</Option>
+                      <Option value="NL">NL</Option>
+            </Select>
+          </div>
+    
+
+    <h3> Interests &amp; Personality: </h3>
 
       <div>
             <label htmlFor="first_name">First name:</label>
