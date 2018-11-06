@@ -21,21 +21,27 @@ class Dashboard extends Component {
     API.getUsers()
       .then(res => {
         this.setState({ users: res.data })
-        const matchUser=this.state.users.filter(userData => userData.amountToSpend !== 100)
-        this.setState({ matchUser });
+        let someFilterFunction = function(userData){
+            if (parseInt(userData.amountToSpend) === 100){
+              console.log("success")
+              console.log(userData);
+              console.log(userData.amountToSpend);
+              return userData.amountToSpend;
+            } else {
+              return null;
+            }
+        }
+
+        const matchUser=this.state.users.filter(someFilterFunction);
+        console.log(matchUser);
+
+        this.setState({ users: matchUser });
 
     })
       .catch(err => console.log(err));
   };
 
-  // removeUser = id => {
-  //   // Filter this.state.friends for friends with an id not equal to the id being removed
-  //   const users = this.state.users.filter(friend => friend.id !== id);
-  //   // Set this.state.users equal to the new users array
-  //   this.setState({ users });
-  // };
  
-
   handleInputChange = (event) =>{
     const name = event.target.name;
     const value = event.target.value;
