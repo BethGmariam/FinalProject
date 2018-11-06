@@ -3,10 +3,6 @@
 // our respective <dbpassword> is finalproject1
 // mLabMongoURI:"mongodb://Beth:finalproject1@ds135233.mlab.com:35233/finalprojectdb",
 module.exports = {
-<<<<<<< HEAD
-    mLabMongoURI:"mongodb://localhost/finalprojectdb3333",
-=======
     mLabMongoURI:"mongodb://Beth:finalproject1@ds135233.mlab.com:35233/finalprojectdb",
->>>>>>> master
     localhostURI:"mongodb://localhost/finalprojectdb"
 }
