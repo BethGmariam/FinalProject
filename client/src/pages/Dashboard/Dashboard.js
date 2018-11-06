@@ -9,6 +9,8 @@ const Dashboard = () => (
       <div className = "interest-output"> className: interest-output </div>
       <div className = "personality-output"> className: personality-output </div>
   </div>
+
+
 );
 
 export default Dashboard;

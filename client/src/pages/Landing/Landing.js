@@ -4,6 +4,11 @@ import "./Landing.css"
 
 const Landing = () => (
   <div id = "landing">
+    <h1 className = "gift-images"> 
+      <span role="img" aria-label="Gift"> ❤🎁❤🎁 ❤🎁 ❤🎁  </span>  
+      <span role="img" aria-label="Gift"> ❤🎁 </span> 
+      <span role="img" aria-label="Gift"> ❤🎁 </span> 
+    </h1>
     <div id = "landing-content">
       <h2> Who are we? </h2>
       <p>

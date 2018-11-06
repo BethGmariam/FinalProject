@@ -29,9 +29,13 @@
     "connect-mongo": "^2.0.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
-    "mongoose": "^5.3.4",
+    "mongoose": "^5.3.9",
     "mongoose-bcrypt": "^1.6.0",
-    "mongoose-type-email": "^1.0.9"
+    "mongoose-type-email": "^1.0.9",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.83.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
