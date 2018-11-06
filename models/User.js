@@ -7,9 +7,9 @@ var UserSchema = new mongoose.Schema({
 // fields created for login//
       email: {
         type:mongoose.SchemaTypes.Email,// mongoose email validator
-        required:true,
+        required:false,
         allowBlank: false,
-        unique: true
+        unique:false
       },
       password: {
         type: String
@@ -70,12 +70,21 @@ favthings:{
 },
 interesthobby:{
   type:String,
-  required:false
+  required:false,
+  default:"traveling, coding"
 },
 personality:{
   type:String,
   required:false
-}, // end of field created for registeration
+},
+
+amountToSpend:{
+  type:Number,
+  required:false,
+  default:25
+},
+
+// end of field created for registeration
 
       // fields added for watsonAnalysis
 
