@@ -146,8 +146,8 @@ var watsonAnalysisFn = function(params) {
       require('watson-developer-cloud/personality-insights/v3');
     var personalityInsights = new PersonalityInsightsV3({
       version: '2017-10-13',
-      iam_apikey: '',
-      url: ''
+      iam_apikey: 'Ubk285AL1s4RoiooAdNATd_0V03e8B8b2e0PZpELryGr',
+      url: 'https://gateway.watsonplatform.net/personality-insights/api'
   });
 
     personalityInsights.profile({'text': params.textToAnalyze},function(err, res) {

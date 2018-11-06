@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { RadioGroup, Radio, Form, Text, TextArea, Option, Select } from 'informed';
 import './RegisForm.css';
+import API from "../../utils/API";// to connect form to db
 
   const basicValidation = value => {
     return !value || value.length < 2 ? 'Field must be longer than two characters' : null;
@@ -29,7 +30,8 @@ class RegisForm extends Component {
     province: '',
     favthings: '',
     interesthobby: '',
-    personality:''
+    personality:'',
+    amountToSpend:0
   }
 
     constructor (){
@@ -68,8 +70,10 @@ class RegisForm extends Component {
         province: this.state.province,
         favthings: this.state.favthings,
         interesthobby: this.state.interesthobby,
-        personality:this.state.personality
+        personality:this.state.personality,
+        amountToSpend:parseInt(this.state.amountToSpend)
       }
+ console.log(evt.target.value);
 
         this.setState({
             displayValue: this.state.value, 
@@ -79,6 +83,12 @@ class RegisForm extends Component {
         //console.log(this.formApi.getState());
         console.log(userData);
 
+ //======================================================== add user data to db ==================
+API.saveUser(userData).then((res)=>{
+  console.log(res);
+
+});
+//======================================================== add user data to db  ==================
         
     }
 
@@ -96,6 +106,7 @@ class RegisForm extends Component {
       str1 = str1.replace(/\n /,"\n");
       document.getElementById("noofwords").value = str1.split(' ').length;
     }
+
 
     
     render() {
@@ -129,6 +140,11 @@ class RegisForm extends Component {
           <div className = "question">
                 <label htmlFor="twitterAccount">Twitter Account:</label>
                 <Text field="twitterAccount" className="question-field" id="twitterAccount" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+          
+          <div className = "question">
+                <label htmlFor="amountToSpend">Amount To Spend:</label>
+                <Text field="amountToSpend" className="question-field" id="amountToSpend" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
 
           <ul>
