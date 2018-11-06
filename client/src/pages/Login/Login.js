@@ -3,18 +3,21 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-// import API from "../../utils/API";
-import axios from 'axios';
-
-
+import API from "../../utils/API";
 
 class Login extends Component {
 
   state={
-  // users:[],
+  loggedIn: '',
   email:'',
   password:''
   }
+
+login = (state) => {
+  if(this.state.loggedIn === true) {
+    console.log("Youre already logged in");
+  }
+}
 
 
  handleInputChange = (event) => {
@@ -22,60 +25,23 @@ class Login extends Component {
   this.setState({
     [name]: value
   });
-};  
-
-// validateUserFn(){
-//     API.getUsers()
-//     .then(res => {
-//       // console.log(res);
-//       this.setState({users:res.data})
-//         const userName = this.state.username;
-//         const userPassword = this.state.password;
-//         var flag = 0;// to check if user exists already in the db
-
-//        if(!userName || !userPassword)
-//        {
-//          alert("both username and password are required");
-//          return;
-//        }
-//        const userData = this.state.users;
-//         for(let i=0;i<userData.length;i++)
-//        {
-//          if(userName===userData[i].username){
-//          alert("username exists in the db")
-//          flag = 1;
-//            }
-//           if(userPassword===userData[i].password){
-//          alert("password matches")
-//          flag = 1;
-//            }
-//            if((userName===userData[i].username) && (userPassword === userData[i].password)){
-//             alert("logged in successful")
-//             flag = 1;
-//               }
-//          }
-//          if(flag === 0) {alert("please use a valid username")}
-
-//     }).catch(err => console.log(err))
-//     }
+};
 
 handleFormSubmit = (event)=>{
    event.preventDefault();
-    //================================= 
 
-    axios.post("/login",this.state)//added to store into Users model
-    .then(function (response) {
-      console.log(response);
-      // if(response.data.code === 200){
-      // console.log("Login successfull");
-      // }
+
+    API.loginFn(this.state)
+    .then(res => {
+      if (true) {
+        console.log("logged in");
+        this.state.loggedIn = true;
+      }
     })
-    //===================================
-
-  //  this.validateUserFn();
- }
+}
 
 render() {
+
     return (
        <div style={{textAlign:"center"}}>
         <MuiThemeProvider>

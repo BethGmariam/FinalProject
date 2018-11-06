@@ -33,55 +33,7 @@ app.use(session({
 // for login system all in server.js
 var db = require("./models");
 
-  app.post("/login", function(req, res) {
-    var email = req.body.email;
-    var password = req.body.password;
-  
-      db.User.findOne({email: email}, function(err, user) {
-        if (err) {
-          console.log(err);
-          return res.status(500).send();
-        }
-  
-        if (!user) {
-          return res.status(404).send();
-        }
-  
-        user.comparePassword(password, function(err, isMatch) {
-          if (isMatch && isMatch == true) {
-            req.session.user = user;
-            return res.status(200).send("loggedin");
-          } else {
-            return res.status(401).send("unauth");
-          }
-        });
-      })
-  });
-  
-  
-  app.get("/logout", function(req, res) {
-    req.session.destroy();
-    return res.status(200).send();
-  })
-  
-  
-  app.get("/dashboard" , function(req,res) {
-    if(!req.session.user) {
-      return res.status(401).send("You must be logged in to access this");
-    }
-  
-    return res.status(200).send("Welcome to logged in state");
-  }) //must be logged in to see thuis apge
-  
-  app.post("/registration", function(req, res) {
-    db.User
-    .create(req.body)
-    .then(userData => {
-      console.log(userData)
-      return res.status(200).send()
-    })
-    .catch(err => res.status(422).json(err));
-  });// end of login/registeration.
+
 
 // use routes from routes folder index.js
 app.use(routes);
@@ -91,6 +43,74 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, ()=> console.log(`server started on PORT: ${PORT}`));
 
 //watson personality analysis  logic
+// 
+//  var params1 = {};
+//  var userId = '';
+//  db.User.find()
+//  .then(function(res) {
+//    var lastItem = res.length-1;
+//
+//       params1.textToAnalyze = res[lastItem].personality
+//       userId = res[lastItem]._id
+//       console.log(lastItem)
+//
+//      watsonAnalysisFn(params1)
+//     .then((results) => {
+//       console.log(JSON.stringify(results, null, 2))
+//
+//       var tempStorage ={
+//         Openness:results.personality[0].percentile,
+//         Conscientiousness:results.personality[1].percentile,
+//         Extraversion:results.personality[2].percentile,
+//         Agreeableness:results.personality[3].percentile,
+//         EmotionalRange:results.personality[4].percentile
+//
+//       };
+//
+//
+//       var myquery = { _id: userId };
+//       // console.log(userId)
+//       var newvalues = {$set: {
+//         Openness: tempStorage.Openness,
+//         Conscientiousness: tempStorage.Conscientiousness,
+//         Extraversion: tempStorage.Extraversion,
+//         Agreeableness: tempStorage.Agreeableness,
+//         EmotionalRange: tempStorage.EmotionalRange,
+//         PersonalityAnalysed: true
+//         } };
+//       db.User.updateMany(myquery, newvalues, function(err, res) {
+//       if (err) throw err;
+//         //db.User.close();
+//         });
+//       })
+//       .catch((error) => console.log(error.message));
+//
+//
+//   });
+//
+//
+// // main watson text analysis function
+// var watsonAnalysisFn = function(params) {
+//   return new Promise(function (resolve, reject) {
+//     // var res = {};
+//
+//     const PersonalityInsightsV3 =
+//       require('watson-developer-cloud/personality-insights/v3');
+//     var personalityInsights = new PersonalityInsightsV3({
+//       version: '2017-10-13',
+//       iam_apikey: '',
+//       url: ''
+//   });
+//
+//     personalityInsights.profile({'text': params.textToAnalyze},function(err, res) {
+//       if (err)
+//         reject(err);
+//       else
+//         resolve(res);
+//     });
+//   });
+// }// end of watson personality analysis  logic
+
 
  var params1 = {};
  var userId = '';
@@ -158,3 +178,4 @@ var watsonAnalysisFn = function(params) {
     });
   });
 }// end of watson personality analysis  logic
+
