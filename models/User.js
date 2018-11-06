@@ -21,7 +21,7 @@ var UserSchema = new mongoose.Schema({
       signUpdate: {
         type: Date,
         default: Date.now()
-      },  
+      },
 
 // additional fields created for registeration
 
@@ -78,7 +78,7 @@ personality:{
 }, // end of field created for registeration
 
       // fields added for watsonAnalysis
-        
+
         Openness:{
           type:Number
         },
@@ -98,11 +98,6 @@ personality:{
           type:Boolean
 
         } // end of watsonAnalysis field
-
-
-
-
-
 })
 
 
