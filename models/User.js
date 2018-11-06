@@ -21,7 +21,7 @@ var UserSchema = new mongoose.Schema({
       signUpdate: {
         type: Date,
         default: Date.now()
-      },  
+      },
 
 // additional fields created for registeration
 
@@ -87,7 +87,7 @@ amountToSpend:{
 // end of field created for registeration
 
       // fields added for watsonAnalysis
-        
+
         Openness:{
           type:Number
         },
@@ -107,11 +107,6 @@ amountToSpend:{
           type:Boolean
 
         } // end of watsonAnalysis field
-
-
-
-
-
 })
 
 
