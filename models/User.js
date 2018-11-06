@@ -7,9 +7,9 @@ var UserSchema = new mongoose.Schema({
 // fields created for login//
       email: {
         type:mongoose.SchemaTypes.Email,// mongoose email validator
-        required:true,
+        required:false,
         allowBlank: false,
-        unique: true
+        unique:false
       },
       password: {
         type: String
@@ -21,7 +21,7 @@ var UserSchema = new mongoose.Schema({
       signUpdate: {
         type: Date,
         default: Date.now()
-      },  
+      },
 
 // additional fields created for registeration
 
@@ -36,27 +36,32 @@ last_name:{
 
 phone:{
   type:String,
-  required:false
+  required:false,
+  default:"647-122-3344"
 },
 
 twitterAccount:{
   type:String,
-  required:false
+  required:false,
+  default:"abcd1234"
 },
 
 address:{
   type:String,
-  required:false
+  required:false,
+  default:"Toronto Canada"
 },
 
 postalcode:{
   type:String,
-  required:false
+  required:false,
+  default:"M4C5A2"
 },
 
 province:{
   type:String,
-  required:false
+  required:false,
+  default:"ON"
 },
 
 favthings:{
@@ -65,13 +70,43 @@ favthings:{
 },
 interesthobby:{
   type:String,
-  required:false
+  required:false,
+  default:"traveling, coding"
 },
 personality:{
   type:String,
   required:false
-} // end of field created for registeration
+},
 
+amountToSpend:{
+  type:Number,
+  required:false,
+  default:25
+},
+
+// end of field created for registeration
+
+      // fields added for watsonAnalysis
+
+        Openness:{
+          type:Number
+        },
+        Conscientiousness:{
+          type:Number
+        },
+        Extraversion:{
+          type:Number
+        },
+        Agreeableness:{
+          type:Number
+        },
+        EmotionalRange:{
+          type:Number
+        },
+        PersonalityAnalysed:{
+          type:Boolean
+
+        } // end of watsonAnalysis field
 })
 
 

@@ -21,15 +21,22 @@ export default {
   saveUser: function(userData) {
     return axios.post("/api/users", userData);
   },
-      // getLogin: function(userData) {
-      //   return axios.get("/login", userData)
-      // },
 
-      // registerUser:function(userData){
-      //   return axios.post("/register",userData)
-      // },
+  loginFn: function(userData) {
+    return axios.post("api/users/login", userData);
+  },
 
+  registerFn: function(userData) {
+    return axios.post("/api/users/registration", userData);
+  },
 
+  loadDash: function(userData) {
+    return axios.post("api/users/dashboard", userData);
+  },
+
+  logout: function(userData) {
+    return axios.post("api/users/logout", userData);
+  },
   search: function(query) {
   	console.log('full query: '+ BASEURL + APIKEY + queryFix + query);
     return axios.get(BASEURL + APIKEY + queryFix + query);
