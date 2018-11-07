@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import "./Dashboard.css"
 import API from "../../utils/API";
-//import DeleteBtn from "../../components/Form/DeleteBtn";
-import FormBtn from "../../components/Form/FormBtn";
-import { Col, Row, Container } from "../../components/Grid";
+//import FormBtn from "../../components/Form/FormBtn";
+//import { Col, Row, Container } from "../../components/Grid";
+import { Button, Header, Modal } from 'semantic-ui-react'
 import { List, ListItem } from "../../components/List";
 import { Form, Text } from 'informed';
 
@@ -81,16 +81,16 @@ class Dashboard extends Component {
 
             //console.log(matchUser.Safety)
 
- const displayCheck = (user) => {
-   if (user.Safety === 0) {
-    return <p> X </p>
-   }
+//  const displayCheck = (user) => {
+//    if (user.Safety === 0) {
+//     return <p> X </p>
+//    }
    
-  return (
-      <p>✓</p>
-  )
+//   return (
+//       <p>✓</p>
+//   )
   
- };
+//  };
             
               
     
@@ -119,43 +119,27 @@ class Dashboard extends Component {
     <div className = "question">
                 <label htmlFor="amountToSpend">Amount To Spend:</label>
                 <Text field="amountToSpend" className="question-field" id="amountToSpend"  value={this.state.value} v="true" onChange={this.handleInputChange} />
+                <button type="submit" onClick={this.handleClick}> Submit </button>
           </div>
-        <button type="submit" onClick={this.handleClick}>
-        Submit
-      </button>
+
     </Form>
      
     <h2 id="receiverProfileHeader"> {"Receiver's Profile"} </h2>
 
-      <Container fluid>
-        <Row>
-        <Col size="md-4">
-           {this.state.users.length ? (
-              <List>
-                {this.state.users.map(user => (
-                  <ListItem key={user._id}>
-                  <div className = "interest-output"> 
-                      <p>First_name: {user.first_name} </p>
-                      <p>Last_name: {user.last_name}</p>
-                      <p>MailingAddress: {user.address}</p>
-                      <p>Hobby: {user.interesthobby}</p>
-                      <p>AmountToSpend:{user.amountToSpend}</p>
-                      <FormBtn onClick={()=>this.deleteUser(user._id)}>Send Gift</FormBtn>
-                    </div>
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-
-          <Col size="md-8 sm-12">
+          <div className = "container">
           {this.state.users.length ? (
               <List>
                 {this.state.users.map(user => (
                   <ListItem key={user._id}>
                     <div className = "personality-output"> 
+                        <p> <strong> Personal Info </strong> </p>
+                        <p>First_name: {user.first_name}</p>
+                        <p>Last_name: {user.last_name}</p>
+                        <p>MailingAddress: {user.address}</p>
+                        <p>Hobby: {user.interesthobby}</p>
+                        <p>AmountToSpend:{user.amountToSpend}</p> <br />
+
+                        <p> <strong> Interests and Personality </strong> </p>
                         <p>Is saftey a concern for them?{user.Safety}</p>
                         <p>does Quality matter to them?{user.Quality}</p>
                         <p>Are they worried about style? {user.stylish}</p>
@@ -167,9 +151,30 @@ class Dashboard extends Component {
                         <p>Are they a Gym Rat? {user.gym}</p>
                         <p>Do they like the outdoors? {user.outdoors}</p>
                         <p>Are They are a socially conscious person? {user.socialCon}</p>
-                        
-                        <FormBtn onClick={()=>this.deleteUser(user._id)}>Send Gift</FormBtn>
-
+      
+                        <Modal trigger={<Button onClick={()=>this.deleteUser(user._id)}>Send Gift</Button>} basic size='small'>
+                        <Header icon='smile' content='Instructions to help Santa do his/her job:' />
+                        <Modal.Content className = "modal-content">
+                          <p>
+                          <strong> Step # 1 </strong> <span role="img" aria-label="shopping"> 🎅 </span> <br />
+                          Go shopping - please consider the receiver's profile when selecting a gift <br />
+                          Some great resources would be <a href = "https://www.amazon.ca/"> Amazon </a>, <a href = "https://www.thebay.com/"> The Bay </a>, <a href = "https://www.chapters.indigo.ca/en-ca/"> Chapters </a>, <a href = "https://www.walmart.ca/en"> Walmart </a> ! 
+                          </p>
+                          <p>
+                          <strong> Step # 2 </strong> <span role="img" aria-label="package"> 📦 </span> <br />
+                          Once gift has been selected and purchased, please mail your package to our address: <br />
+                          123 Magic Unicorn Avenue North Pole, North Pole 888888
+                          </p>
+                          <p>
+                          <strong> Step # 3 </strong> <span role="img" aria-label="mail"> 📨 </span> <br />
+                          For ease on operations, after package has been sent - please send us your tracking number to us via <a href="mailto:santasgiftexchange@santa.com"> email! </a>
+                          </p>
+                          <p>
+                          <strong> Step # 4 </strong> <span role="img" aria-label="confirmation"> 💌 </span> <br />
+                          Wait for our confirmation via email, please make sure you have provided the correct information in your profile.
+                          </p>
+                        </Modal.Content>
+                      </Modal>
                     </div>
                   </ListItem>
                 ))}
@@ -177,11 +182,7 @@ class Dashboard extends Component {
             ) : (
               <h3>No Results to Display</h3>
             )}
-          </Col>
-
-        </Row>
-        <p> Instructions: Once gift has been selected, please share tracking number </p>
-      </Container> 
+          </div>
   </div>
 
 

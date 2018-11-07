@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { RadioGroup, Radio, Form, Text, TextArea, Option, Select } from 'informed';
+import { Form, Text, TextArea, Option, Select } from 'informed';
 import { Button } from 'semantic-ui-react';
 import './RegisForm.css';
 import API from "../../utils/API";// to connect form to db
@@ -121,7 +121,6 @@ API.saveUser(userData).then((res)=>{
         <div className = "question">
                 <label htmlFor="first_name"> First Name: </label>
                 <Text field="first_name" name="first_name" className="question-field" id="first_name"  validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-                
           </div>
           <div className = "question">
                 <label htmlFor="last_name">Last name:</label>
@@ -143,10 +142,7 @@ API.saveUser(userData).then((res)=>{
                 <label htmlFor="twitterAccount">Twitter Account:</label>
                 <Text field="twitterAccount" className="question-field" id="twitterAccount" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div className = "question">
-                <label htmlFor="amountToSpend">Amount To Spend:</label>
-                <Text field="amountToSpend" className="question-field" id="amountToSpend"  value={this.state.value} v="true" onChange={this.handleInputChange} />
-          </div>
+
           <div className = "question">
                 <label htmlFor="address">Home Mailing Address:</label>
                 <Text field="address" className="question-field" placeholder="Unit # / Street Name / City" id="address" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
@@ -172,6 +168,12 @@ API.saveUser(userData).then((res)=>{
                       <Option value="NL">NL</Option>
             </Select>
           </div>
+
+          <div className = "question">
+                <label htmlFor="amountToSpend">Amount To Spend:</label>
+                <Text field="amountToSpend" className="question-field" id="amountToSpend"  value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+          
     
 
     <h3> Interests &amp; Personality: </h3>
