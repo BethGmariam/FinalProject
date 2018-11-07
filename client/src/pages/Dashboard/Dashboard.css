@@ -23,6 +23,7 @@ h2 {
     padding: 100px;
     margin-bottom: 50px;
     background: rgb(231, 144, 73);
+    border-radius: 50px
 }
 
 .container {
@@ -34,4 +35,19 @@ h2 {
     margin-left: 5%;
     line-height: 2em;
     padding-bottom: 20px
+}
+
+.question {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    display: block
+}
+
+.question-field {
+    width: 100px
+}
+
+.question button {
+    margin-left: 20px
 }

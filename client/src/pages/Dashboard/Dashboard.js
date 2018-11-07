@@ -103,49 +103,27 @@ console.log(budget);
     <div className = "question">
                 <label htmlFor="amountToSpend">Amount To Spend:</label>
                 <Text field="amountToSpend" className="question-field" id="amountToSpend"  value={this.state.value} v="true" onChange={this.handleInputChange} />
+                <button type="submit" onClick={this.handleClick}> Submit </button>
           </div>
-        <button type="submit" onClick={this.handleClick}>
-        Submit
-      </button>
+
     </Form>
      
     <h2 id="receiverProfileHeader"> {"Receiver's Profile"} </h2>
 
-      {/* <Container fluid>
-        <Row> */}
-        {/* <Col size="md-4">
-           {this.state.users.length ? (
-              <List>
-                {this.state.users.map(user => (
-                  <ListItem key={user._id}>
-                  <div className = "interest-output"> 
-                      <p>First_name: {user.first_name}</p>
-                      <p>Last_name: {user.last_name}</p>
-                      <p>MailingAddress: {user.address}</p>
-                      <p>Hobby: {user.interesthobby}</p>
-                      <p>AmountToSpend:{user.amountToSpend}</p>
-                      <FormBtn onClick={()=>this.deleteUser(user._id)}>Send Gift</FormBtn>
-                    </div>
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col> */}
-
           <div className = "container">
-          {/* <Col size="md-8 sm-12" className = "container"> */}
           {this.state.users.length ? (
               <List>
                 {this.state.users.map(user => (
                   <ListItem key={user._id}>
                     <div className = "personality-output"> 
+                        <p> <strong> Personal Info </strong> </p>
                         <p>First_name: {user.first_name}</p>
                         <p>Last_name: {user.last_name}</p>
                         <p>MailingAddress: {user.address}</p>
                         <p>Hobby: {user.interesthobby}</p>
-                        <p>AmountToSpend:{user.amountToSpend}</p>
+                        <p>AmountToSpend:{user.amountToSpend}</p> <br />
+
+                        <p> <strong> Interests and Personality </strong> </p>
                         <p>Agreeableness: {user.Abreeableness}</p>
                         <p>Conscientiousness: {user.Conscientiousness}</p>
                         <p>EmotionalRange: {user.EmotionalRange}</p>
