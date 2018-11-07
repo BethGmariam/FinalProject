@@ -117,40 +117,40 @@ API.saveUser(userData).then((res)=>{
 <div id = "registration-form">
     <h3> {"Giver's Personal Information:"} </h3>
       <Form>
-        <div className = "question">
+        <div className = "question-reg">
                 <label htmlFor="first_name"> First Name: </label>
                 <Text field="first_name" name="first_name" className="question-field" id="first_name"  validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div className = "question">
+          <div className = "question-reg">
                 <label htmlFor="last_name">Last name:</label>
                 <Text field="last_name" name="last_name" className="question-field" id="last_name" validate={basicValidation}value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div className = "question">
+          <div className = "question-reg">
                 <label htmlFor="phone">Phone Number:</label>
                 <Text field="phone" className="question-field" id="phone" placeholder="XXX-XXX-XXXX" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div className = "question">
+          <div className = "question-reg">
                 <label htmlFor="email">Email Address:</label>
                 <Text field="email" className="question-field" id="email" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div className = "question">
+          <div className = "question-reg">
                 <label htmlFor="password"> Password:</label>
                 <Text field="password" className="question-field" id="password" type="password" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div className = "question">
+          <div className = "question-reg">
                 <label htmlFor="twitterAccount">Twitter Account:</label>
                 <Text field="twitterAccount" className="question-field" id="twitterAccount" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
           
-          <div className = "question">
+          <div className = "question-reg">
                 <label htmlFor="address">Home Mailing Address:</label>
                 <Text field="address" className="question-field" placeholder="Unit # / Street Name / City" id="address" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div className = "question">
+          <div className = "question-reg">
                 <label htmlFor="postalcode">Postal Code:</label>
                 <Text field="postalcode" className="question-field" placeholder="X1XX1X" id="postalcode" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          <div className = "question"> 
+          <div className = "question-reg"> 
             <label htmlFor="select-province"> Province:</label>
               <Select field="province" id="select-province" value={this.state.value} onChange={this.handleInputChange} v="true">
                   <Option value="" disabled> Select One...
@@ -168,7 +168,7 @@ API.saveUser(userData).then((res)=>{
             </Select>
           </div>
 
-          <div className = "question">
+          <div className = "question-reg">
               <label htmlFor="amountToSpend"> Amount To Spend: </label>
               <Text field="amountToSpend" name="amountToSpend" className="question-field" id="amountToSpend"  validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
