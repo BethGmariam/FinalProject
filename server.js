@@ -51,28 +51,40 @@ const db = require("./models");
     
      watsonAnalysisFn(params1)
     .then((results) => {
-      console.log(JSON.stringify(results, null, 2))
+      //console.log(JSON.stringify(results, null, 2))
       
       var tempStorage ={
-        Openness:results.personality[0].percentile,
-        Conscientiousness:results.personality[1].percentile,
-        Extraversion:results.personality[2].percentile,
-        Agreeableness:results.personality[3].percentile,
-        EmotionalRange:results.personality[4].percentile,
-        consumption:results.consumption_preferences[1].consumption_preferences[2]
-  
+        Safety: results.consumption_preferences[0].consumption_preferences[1].score,
+        Quality: results.consumption_preferences[0].consumption_preferences[2].score,
+        stylish: results.consumption_preferences[0].consumption_preferences[3].score,
+        comfort: results.consumption_preferences[0].consumption_preferences[4].score,
+        brandName: results.consumption_preferences[0].consumption_preferences[5].score,
+        useful: results.consumption_preferences[0].consumption_preferences[6].score,
+        family: results.consumption_preferences[0].consumption_preferences[9].score,
+        spontaneous: results.consumption_preferences[0].consumption_preferences[10].score,
+        gym: results.consumption_preferences[1].consumption_preferences[1].score,
+        outdoors: results.consumption_preferences[1].consumption_preferences[2].score,
+        socialCon: results.consumption_preferences[7].consumption_preferences[0].score,
       };
+
+      console.log(JSON.stringify(tempStorage));
 
 
       var myquery = { _id: userId };
       // console.log(userId)
       var newvalues = {$set: {
-        Openness: tempStorage.Openness,
-        Conscientiousness: tempStorage.Conscientiousness,
-        Extraversion: tempStorage.Extraversion,
-        Agreeableness: tempStorage.Agreeableness,
-        EmotionalRange: tempStorage.EmotionalRange,
-        consumption: tempStorage.consumption,
+        Safety: tempStorage.Safety,
+        Quality: tempStorage.Quality,
+        stylish: tempStorage.stylish,
+        comfort: tempStorage.comfort,
+        brandName: tempStorage.brandName,
+        useful: tempStorage.useful,
+        family: tempStorage.family,
+        spontaneous: tempStorage.spontaneous,
+        gym: tempStorage.gym,
+        outdoors: tempStorage.outdoors,
+        socialCon: tempStorage.socialCon,
+        
         PersonalityAnalysed: true
         } };
       db.User.updateMany(myquery, newvalues, function(err, res) {
@@ -99,7 +111,10 @@ var watsonAnalysisFn = function(params) {
       url: 'https://gateway.watsonplatform.net/personality-insights/api'
   });
 
-    personalityInsights.profile({'text': params.textToAnalyze},function(err, res) {
+    personalityInsights.profile({
+      'text': params.textToAnalyze,
+      consumption_preferences: true
+    },function(err, res) {
       if (err)
         reject(err);
       else

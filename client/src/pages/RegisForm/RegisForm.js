@@ -58,6 +58,7 @@ class RegisForm extends Component {
 
     handleClick = (evt) => {
       evt.preventDefault();
+      this.props.history.push('/dashboard');
 
       let userData = {
         first_name:this.state.first_name,
@@ -142,34 +143,10 @@ API.saveUser(userData).then((res)=>{
                 <label htmlFor="twitterAccount">Twitter Account:</label>
                 <Text field="twitterAccount" className="question-field" id="twitterAccount" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
-          
-          
-
-          <ul>
-            <RadioGroup field="amountToSpend">
-            <label>Amount to spend:   </label>
-          <li>
-              <Radio value="20" id="quant1" />
-              <label htmlFor="radio1">$0 - $20</label>
-          </li>
-          <li>
-              <Radio value="40" id="quant2" />
-              <label htmlFor="radio2">$21 - $40</label>
-          </li>
-          <li>
-              <Radio value="60" id="quant3" />
-              <label htmlFor="radio3">$41 - $60</label>
-          </li>
-          <li>
-              <Radio value="80" id="quant5" />
-              <label htmlFor="radio4">$61 - $80</label>
-          </li>
-          <li>
-              <Radio value="1000" id="quant6" />
-              <label htmlFor="radio5">$81 - $110</label>
-          </li>
-            </RadioGroup>
-          </ul>
+          <div className = "question">
+                <label htmlFor="amountToSpend">Amount To Spend:</label>
+                <Text field="amountToSpend" className="question-field" id="amountToSpend"  value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
           <div className = "question">
                 <label htmlFor="address">Home Mailing Address:</label>
                 <Text field="address" className="question-field" placeholder="Unit # / Street Name / City" id="address" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
