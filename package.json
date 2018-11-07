@@ -20,7 +20,6 @@
   "bugs": {
     "url": "https://github.com/BethGmariam/FinalProject/issues"
   },
-  "homepage": "https://github.com/BethGmariam/FinalProject#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
