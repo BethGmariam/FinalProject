@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const BASEURL  = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=";
-const APIKEY   = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
-const queryFix = "&q=";
+// const BASEURL  = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=";
+// const APIKEY   = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
+// const queryFix = "&q=";
 
 export default {
   // Gets all users
@@ -37,9 +37,9 @@ export default {
   logout: function(userData) {
     return axios.post("api/users/logout", userData);
   },
-  search: function(query) {
-  	console.log('full query: '+ BASEURL + APIKEY + queryFix + query);
-    return axios.get(BASEURL + APIKEY + queryFix + query);
-  }
+  // search: function(query) {
+  // 	console.log('full query: '+ BASEURL + APIKEY + queryFix + query);
+  //   return axios.get(BASEURL + APIKEY + queryFix + query);
+  // }
 
 };

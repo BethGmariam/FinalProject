@@ -40,7 +40,7 @@ class RegisForm extends Component {
 
         this.handleClick = this.handleClick.bind(this);
 
-    this.setFormApi = this.setFormApi.bind(this);
+    // this.setFormApi = this.setFormApi.bind(this);
 
         this.state={
             value: '',
@@ -143,10 +143,7 @@ API.saveUser(userData).then((res)=>{
                 <Text field="twitterAccount" className="question-field" id="twitterAccount" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
           
-          <div className = "question">
-                <label htmlFor="amountToSpend">Amount To Spend:</label>
-                <Text field="amountToSpend" className="question-field" id="amountToSpend" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-          </div>
+          
 
           <ul>
             <RadioGroup field="amountToSpend">

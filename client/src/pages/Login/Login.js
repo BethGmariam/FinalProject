@@ -29,6 +29,7 @@ login = (state) => {
 
 handleFormSubmit = (event)=>{
    event.preventDefault();
+   this.props.history.push('/dashboard');
 
 
     API.loginFn(this.state)
