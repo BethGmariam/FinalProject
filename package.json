@@ -8,7 +8,9 @@
     "build": "cd client && npm run build",
     "start": "if-env NODE_ENV=production && npm run prod || npm run dev",
     "prod": "node server.js",
-    "dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\""
+    "dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start"
+
   },
   "engines": {
     "node": "v10.11.0",
