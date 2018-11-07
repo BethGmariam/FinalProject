@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import "./Dashboard.css"
 import API from "../../utils/API";
-// import DeleteBtn from "../../components/Form/DeleteBtn";
-// import FormBtn from "../../components/Form/FormBtn";
+import FormBtn from "../../components/Form/FormBtn";
+import { Col, Row, Container } from "../../components/Grid";
 import { Button, Header, Modal } from 'semantic-ui-react'
 import { List, ListItem } from "../../components/List";
 import { Form, Text } from 'informed';
@@ -17,7 +17,6 @@ class Dashboard extends Component {
 
   constructor (){
     super ();
-
     this.handleClick = this.handleClick.bind(this);
 
 // this.setFormApi = this.setFormApi.bind(this);
@@ -28,6 +27,7 @@ class Dashboard extends Component {
     // }
 
 }
+
 
   //  componentDidMount() {
   //    this.loadUsers();
@@ -50,7 +50,7 @@ class Dashboard extends Component {
     let budget = parseInt(this.state.amountToSpend)
     
 //console.log(evt.target.value);
-console.log(budget);
+//console.log(budget);
 
        this.setState({
            displayValue:this.state.value, 
@@ -61,12 +61,12 @@ console.log(budget);
     API.getUsers()
           .then(res => {
             this.setState({ users: res.data })
-            console.log(res.data)
+            //console.log(res.data)
             let someFilterFunction = function(userData){
                 if (parseInt(userData.amountToSpend) === budget){
-                  console.log("success")
-                  console.log(userData);
-                  console.log(userData.amountToSpend);
+                  //console.log("success")
+                  // console.log(userData);
+                  // console.log(userData.amountToSpend);
                   return userData.amountToSpend;
                 } else {
                   return null;
@@ -74,9 +74,24 @@ console.log(budget);
               }
     
             const matchUser=this.state.users.filter(someFilterFunction);
-            console.log(matchUser);
+           // console.log(matchUser);
     
             this.setState({ users: matchUser });
+
+            console.log(matchUser)
+
+ const displayCheck = ({ matchUser, results}) => {
+   if (matchUser.Safety === 0) {
+    return <p> X </p>
+   }
+   
+  return (
+      <p>✓</p>
+  )
+  
+ };
+            
+              
     
         })
           .catch(err => console.log(err));
@@ -124,11 +139,18 @@ console.log(budget);
                         <p>AmountToSpend:{user.amountToSpend}</p> <br />
 
                         <p> <strong> Interests and Personality </strong> </p>
-                        <p>Agreeableness: {user.Abreeableness}</p>
-                        <p>Conscientiousness: {user.Conscientiousness}</p>
-                        <p>EmotionalRange: {user.EmotionalRange}</p>
-                        <p>Extraversion:{user.Extraversion} </p>
-                        <p>Openness: {user.Openness}</p>
+                        <p>Is saftey a concern for them?{user.Safety}</p>
+                        <p>does Quality matter to them?{user.Quality}</p>
+                        <p>Are they worried about style? {user.stylish}</p>
+                        <p>They need something comfortable?{user.comfort}</p>
+                        <p>Are Brand Names important to them? {user.brandName}</p>
+                        <p>Do they like useful things? {user.useful}</p>
+                        <p>Are they a family person? {user.family}</p>
+                        <p>Are they spontaneous, willing to do things on a whim?{user.spontaneous}</p>
+                        <p>Are they a Gym Rat? {user.gym}</p>
+                        <p>Do they like the outdoors? {user.outdoors}</p>
+                        <p>Are They are a socially conscious person? {user.socialCon}</p>
+      
                         <Modal trigger={<Button onClick={()=>this.deleteUser(user._id)}>Send Gift</Button>} basic size='small'>
                         <Header icon='smile' content='Instructions to help Santa do his/her job:' />
                         <Modal.Content className = "modal-content">
