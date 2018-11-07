@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import "./Dashboard.css"
 import API from "../../utils/API";
-// import DeleteBtn from "../../components/Form/DeleteBtn";
-// import FormBtn from "../../components/Form/FormBtn";
 import { Button, Header, Modal } from 'semantic-ui-react'
 import { List, ListItem } from "../../components/List";
 import { Form, Text } from 'informed';
@@ -17,7 +15,6 @@ class Dashboard extends Component {
 
   constructor (){
     super ();
-
     this.handleClick = this.handleClick.bind(this);
 
 // this.setFormApi = this.setFormApi.bind(this);
@@ -28,6 +25,7 @@ class Dashboard extends Component {
     // }
 
 }
+
 
   //  componentDidMount() {
   //    this.loadUsers();
@@ -50,7 +48,7 @@ class Dashboard extends Component {
     let budget = parseInt(this.state.amountToSpend)
     
 //console.log(evt.target.value);
-console.log(budget);
+//console.log(budget);
 
        this.setState({
            displayValue:this.state.value, 
@@ -61,12 +59,12 @@ console.log(budget);
     API.getUsers()
           .then(res => {
             this.setState({ users: res.data })
-            console.log(res.data)
+            //console.log(res.data)
             let someFilterFunction = function(userData){
                 if (parseInt(userData.amountToSpend) === budget){
-                  console.log("success")
-                  console.log(userData);
-                  console.log(userData.amountToSpend);
+                  //console.log("success")
+                  // console.log(userData);
+                  // console.log(userData.amountToSpend);
                   return userData.amountToSpend;
                 } else {
                   return null;
@@ -74,9 +72,24 @@ console.log(budget);
               }
     
             const matchUser=this.state.users.filter(someFilterFunction);
-            console.log(matchUser);
+           // console.log(matchUser);
     
             this.setState({ users: matchUser });
+
+            console.log(matchUser)
+
+ const displayCheck = ({ matchUser }) => {
+   if (matchUser.Safety === 0) {
+     console.log("not")
+   } else { 
+     console.log("yes")
+   }
+  
+ };
+
+ console.log(displayCheck)
+            
+              
     
         })
           .catch(err => console.log(err));
@@ -124,11 +137,18 @@ console.log(budget);
                         <p>AmountToSpend:{user.amountToSpend}</p> <br />
 
                         <p> <strong> Interests and Personality </strong> </p>
-                        <p>Agreeableness: {user.Abreeableness}</p>
-                        <p>Conscientiousness: {user.Conscientiousness}</p>
-                        <p>EmotionalRange: {user.EmotionalRange}</p>
-                        <p>Extraversion:{user.Extraversion} </p>
-                        <p>Openness: {user.Openness}</p>
+                        <p>Is saftey a concern for them?{user.Safety}</p>
+                        <p>does Quality matter to them?{user.Quality}</p>
+                        <p>Are they worried about style? {user.stylish}</p>
+                        <p>They need something comfortable?{user.comfort}</p>
+                        <p>Are Brand Names important to them? {user.brandName}</p>
+                        <p>Do they like useful things? {user.useful}</p>
+                        <p>Are they a family person? {user.family}</p>
+                        <p>Are they spontaneous, willing to do things on a whim?{user.spontaneous}</p>
+                        <p>Are they a Gym Rat? {user.gym}</p>
+                        <p>Do they like the outdoors? {user.outdoors}</p>
+                        <p>Are They are a socially conscious person? {user.socialCon}</p>
+      
                         <Modal trigger={<Button onClick={()=>this.deleteUser(user._id)}>Send Gift</Button>} basic size='small'>
                         <Header icon='smile' content='Instructions to help Santa do his/her job:' />
                         <Modal.Content className = "modal-content">
@@ -144,11 +164,11 @@ console.log(budget);
                           </p>
                           <p>
                           <strong> Step # 3 </strong> <span role="img" aria-label="mail"> 📨 </span> <br />
-                          For ease on operations, after package has been sent - please send us your tracking number to us via <a href="mailto:santasgiftexchange@santa.com"> email! </a>
+                          For ease on operations, after package has been sent - please send your tracking number to us via <a href="mailto:santasgiftexchange@santa.com"> email! </a>
                           </p>
                           <p>
                           <strong> Step # 4 </strong> <span role="img" aria-label="confirmation"> 💌 </span> <br />
-                          Wait for our confirmation via email, please make sure you have provided the correct information in your profile.
+                          Wait for our confirmation via email, which you must receive within 24-48 hours. If you have not received one, please give us a shout by calling 888-143-0987!
                           </p>
                         </Modal.Content>
                       </Modal>
@@ -157,7 +177,7 @@ console.log(budget);
                 ))}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
+              <h4>No Results to Display</h4>
             )}
           </div>
   </div>

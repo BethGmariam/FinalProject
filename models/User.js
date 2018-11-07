@@ -88,25 +88,43 @@ amountToSpend:{
 
       // fields added for watsonAnalysis
 
-        Openness:{
-          type:Number
-        },
-        Conscientiousness:{
-          type:Number
-        },
-        Extraversion:{
-          type:Number
-        },
-        Agreeableness:{
-          type:Number
-        },
-        EmotionalRange:{
-          type:Number
-        },
         PersonalityAnalysed:{
           type:Boolean
-
-        } // end of watsonAnalysis field
+        },
+        Safety:{
+          type:Number
+        },
+        Quality:{
+          type:Number
+        },
+        stylish:{
+          type:Number
+        },
+        comfort:{
+          type:Number
+        },
+        brandName:{
+          type:Number
+        } ,
+        useful:{
+          type:Number
+        } ,
+        family:{
+          type:Number
+        } ,
+        spontaneous:{
+          type:Number
+        } ,
+        gym:{
+          type:Number
+        } ,
+        outdoors:{
+          type:Number
+        } ,
+        socialCon: {
+          type:Number
+        }
+// end of watsonAnalysis field
 })
 
 

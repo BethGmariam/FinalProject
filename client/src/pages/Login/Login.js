@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import API from "../../utils/API";
+import "./Login.css";
 
 class Login extends Component {
 
@@ -45,12 +45,10 @@ handleFormSubmit = (event)=>{
 render() {
 
     return (
-       <div style={{textAlign:"center"}}>
+       <div id = "login-form">
         <MuiThemeProvider>
-          {/* <div>
-            <AppBar title="Login" style={{background:"red"}}/>
-          </div> */}
-           <form style={{margin:"100px 25%",width:"50%",border:"2px dotted green"}}>
+           <form className = "form">
+                <p> <span role="img" aria-label="hello"> 👋🏻 </span> Welcome back! please sign in with your login details below: </p>
                 <TextField
                   name="email"
                   hintText="Enter your Username"

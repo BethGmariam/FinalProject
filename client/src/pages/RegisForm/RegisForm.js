@@ -58,6 +58,7 @@ class RegisForm extends Component {
 
     handleClick = (evt) => {
       evt.preventDefault();
+      this.props.history.push('/dashboard');
 
       let userData = {
         first_name:this.state.first_name,
@@ -169,8 +170,8 @@ API.saveUser(userData).then((res)=>{
           </div>
 
           <div className = "question-reg">
-              <label htmlFor="amountToSpend"> Amount To Spend: </label>
-              <Text field="amountToSpend" name="amountToSpend" className="question-field" id="amountToSpend"  validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+                <label htmlFor="amountToSpend">Amount To Spend:</label>
+                <Text field="amountToSpend" className="question-field" id="amountToSpend"  value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
           
     
