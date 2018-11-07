@@ -58,7 +58,8 @@ const db = require("./models");
         Conscientiousness:results.personality[1].percentile,
         Extraversion:results.personality[2].percentile,
         Agreeableness:results.personality[3].percentile,
-        EmotionalRange:results.personality[4].percentile
+        EmotionalRange:results.personality[4].percentile,
+        consumption:results.consumption_preferences[1].consumption_preferences[2]
   
       };
 
@@ -71,6 +72,7 @@ const db = require("./models");
         Extraversion: tempStorage.Extraversion,
         Agreeableness: tempStorage.Agreeableness,
         EmotionalRange: tempStorage.EmotionalRange,
+        consumption: tempStorage.consumption,
         PersonalityAnalysed: true
         } };
       db.User.updateMany(myquery, newvalues, function(err, res) {

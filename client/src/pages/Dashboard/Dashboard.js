@@ -6,40 +6,34 @@ import API from "../../utils/API";
 import FormBtn from "../../components/Form/FormBtn";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
+import { Form, Text } from 'informed';
 
 class Dashboard extends Component {
 
   state = {
-    users: []
+    users: [],
+    amountToSpend:0
   };
 
-  componentDidMount() {
-    this.loadUsers();
-  }
+  constructor (){
+    super ();
 
-  loadUsers = () => {
-    API.getUsers()
-      .then(res => {
-        this.setState({ users: res.data })
-        let someFilterFunction = function(userData){
-            if (parseInt(userData.amountToSpend) === 100){
-              console.log("success")
-              console.log(userData);
-              console.log(userData.amountToSpend);
-              return userData.amountToSpend;
-            } else {
-              return null;
-            }        
-          }
+    this.handleClick = this.handleClick.bind(this);
 
-        const matchUser=this.state.users.filter(someFilterFunction);
-        console.log(matchUser);
+// this.setFormApi = this.setFormApi.bind(this);
 
-        this.setState({ users: matchUser });
+    // this.state={
+    //     value: '',
+    //   displayValue: ''
+    // }
 
-    })
-      .catch(err => console.log(err));
-  };
+}
+
+  //  componentDidMount() {
+  //    this.loadUsers();
+  //  }
+
+ 
 
  
   handleInputChange = (event) =>{
@@ -49,6 +43,49 @@ class Dashboard extends Component {
       [name]: value
     })
   };
+
+  handleClick = (evt) => {
+    evt.preventDefault();
+
+    let budget = parseInt(this.state.amountToSpend)
+    
+//console.log(evt.target.value);
+console.log(budget);
+
+       this.setState({
+           displayValue:this.state.value, 
+           value: '',            
+       });
+
+
+    API.getUsers()
+          .then(res => {
+            this.setState({ users: res.data })
+            console.log(res.data)
+            let someFilterFunction = function(userData){
+                if (parseInt(userData.amountToSpend) === budget){
+                  console.log("success")
+                  console.log(userData);
+                  console.log(userData.amountToSpend);
+                  return userData.amountToSpend;
+                } else {
+                  return null;
+                }        
+              }
+    
+            const matchUser=this.state.users.filter(someFilterFunction);
+            console.log(matchUser);
+    
+            this.setState({ users: matchUser });
+    
+        })
+          .catch(err => console.log(err));
+
+
+  
+ 
+
+  }
 
   deleteUser = (id) => {
     API.deleteUser(id)
@@ -62,7 +99,16 @@ class Dashboard extends Component {
     return (
   <div className = "dashboard">
     <h1>Dashboard</h1>
-      <p> Instructions: Once gift has been selected, please share tracking number </p>
+    <Form id="amount-to-spend">
+    <div className = "question">
+                <label htmlFor="amountToSpend">Amount To Spend:</label>
+                <Text field="amountToSpend" className="question-field" id="amountToSpend"  value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+        <button type="submit" onClick={this.handleClick}>
+        Submit
+      </button>
+    </Form>
+     
     <h2 id="receiverProfileHeader"> {"Receiver's Profile"} </h2>
 
       <Container fluid>
@@ -111,6 +157,7 @@ class Dashboard extends Component {
           </Col>
 
         </Row>
+        <p> Instructions: Once gift has been selected, please share tracking number </p>
       </Container> 
   </div>
 
