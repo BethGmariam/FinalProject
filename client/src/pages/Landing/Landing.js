@@ -4,30 +4,12 @@ import "./Landing.css"
 
 const Landing = () => (
   <div id = "landing">
+    <h2> We are your #1 Gift-Exchange Community! </h2>
+      <p className = "main-info"> In Santa's castle, everyone is a giver. The world is crazy enough as it is but that is not an excuse to keep sharing love towards one another. Let us encourage every person to contribute to Santa's wish, for everyone to have hearts filled with love. </p>
     <img alt = "gifts" src={require('../../images/gift3.jpeg')} />
     <div id = "landing-content">
-      <h2> We are your #1 Gift-Exchange Community! </h2>
-      <p>
-        Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer gravida dui mauris,
-        ut interdum nunc egestas sed. Aenean sed mollis diam. Nunc aliquet risus ac finibus porta. Nam
-        quis arcu non lectus tincidunt fermentum. Suspendisse aliquet orci porta quam semper
-        imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus in. Sed rhoncus mollis
-        diam, sit amet facilisis lectus blandit at.
-      </p>
-    </div>
-    <div id = "about">
-        <div className = "card">
-            <h5> Mission </h5>
-            <p> Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer gravida dui mauris, ut interdum nunc egestas sed. Aenean sed mollis diam. Nunc aliquet risus ac finibus porta. Nam quis arcu non lectus tincidunt fermentum. Suspendisse aliquet orci porta quam semper imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus in. Sed rhoncus mollis diam, sit amet facilisis lectus blandit at. </p>
-        </div>
-        <div className = "card">
-            <h5> Vision </h5>
-            <p> Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer gravida dui mauris, ut interdum nunc egestas sed. Aenean sed mollis diam. Nunc aliquet risus ac finibus porta. Nam quis arcu non lectus tincidunt fermentum. Suspendisse aliquet orci porta quam semper imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus in. Sed rhoncus mollis diam, sit amet facilisis lectus blandit at. </p>
-        </div>
-        <div className = "card">
-            <h5> Testimonials </h5>
-            <p> Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer gravida dui mauris, ut interdum nunc egestas sed. Aenean sed mollis diam. Nunc aliquet risus ac finibus porta. Nam quis arcu non lectus tincidunt fermentum. Suspendisse aliquet orci porta quam semper imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus in. Sed rhoncus mollis diam, sit amet facilisis lectus blandit at. </p>
-        </div>
+      <h5> Mission <br /> To build a community of givers. To allow people to see each other as a fellow being. To remove divisiveness among strangers. <br /> </h5>
+      <h5> Vision <br /> To be the main gift exchange hub spot for the holiday season. </h5>
     </div>
   </div>
 );

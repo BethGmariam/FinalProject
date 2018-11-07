@@ -16,7 +16,6 @@ h1 {
 h2 {
     font-family: 'Bree Serif', serif;
     text-align:center;
-
 }
 
 .personality-output {
@@ -44,7 +43,7 @@ h2 {
     display: block
 }
 
-.question-field {
+.question .question-field {
     width: 100px
 }
 

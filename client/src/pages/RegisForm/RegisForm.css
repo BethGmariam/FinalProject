@@ -69,3 +69,16 @@ textarea {
     display: block;
     width: 70%
 }
+
+.question-reg {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    margin-bottom: 3px
+}
+
+.question-field {
+    width: 250px;
+    margin-left: 20px
+}
