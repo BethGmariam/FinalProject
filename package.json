@@ -10,7 +10,6 @@
     "prod": "node server.js",
     "dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start"
-
   },
   "engines": {
     "node": "v10.11.0",
