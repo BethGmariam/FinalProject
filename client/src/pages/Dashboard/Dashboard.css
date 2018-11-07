@@ -19,18 +19,19 @@ h2 {
 
 }
 
-.interest-output {
-    padding: 100px;
-    background: peru;
-    margin-bottom: 50px;
-    font-family: 'Crimson Text', serif;
-
-}
-
 .personality-output {
     padding: 100px;
-    background: peru;
     margin-bottom: 50px;
-    font-family: 'Crimson Text', serif;
+    background: rgb(231, 144, 73);
+}
 
+.container {
+    width: 80%
+}
+
+.modal-content p {
+    font-size: 120%;
+    margin-left: 5%;
+    line-height: 2em;
+    padding-bottom: 20px
 }
