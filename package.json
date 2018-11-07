@@ -29,6 +29,7 @@
     "connect-mongo": "^2.0.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "if-env": "^1.0.4",
     "mongoose": "^5.3.9",
     "mongoose-bcrypt": "^1.6.0",
     "mongoose-type-email": "^1.0.9",
