@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { RadioGroup, Radio, Form, Text, TextArea, Option, Select } from 'informed';
+import { Button } from 'semantic-ui-react';
 import './RegisForm.css';
 import API from "../../utils/API";// to connect form to db
 
@@ -220,10 +221,8 @@ API.saveUser(userData).then((res)=>{
       <input id= "noofwords" type="text" size="12"  readOnly={true} defaultValue= "" />  
     </div>
 
-    <div>
-      <button type="submit" onClick={this.handleClick}>
-        Submit
-      </button>
+      <div id = "submit-btn" >
+      <Button positive type="submit" onClick={this.handleClick}>Submit</Button>
       </div>
       <div><p></p></div>
 

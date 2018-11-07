@@ -2,6 +2,14 @@
     padding: 20px 50px
 }
 
+#landing img {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 50%;
+    margin-top: 30px
+}
+
 #about {
     display: block;
     margin: 0;
