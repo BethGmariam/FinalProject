@@ -39,7 +39,6 @@
     "semantic-ui-react": "^0.83.0",
     "personality-text-summary": "^2.2.0",
     "watson-developer-cloud": "^3.13.0"
-
   },
   "devDependencies": {
     "nodemon": "^1.18.4"

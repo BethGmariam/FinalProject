@@ -4,13 +4,9 @@ import "./Landing.css"
 
 const Landing = () => (
   <div id = "landing">
-    <h1 className = "gift-images"> 
-      <span role="img" aria-label="Gift"> ❤🎁❤🎁 ❤🎁 ❤🎁  </span>  
-      <span role="img" aria-label="Gift"> ❤🎁 </span> 
-      <span role="img" aria-label="Gift"> ❤🎁 </span> 
-    </h1>
+    <img alt = "gifts" src={require('../../images/gift3.jpeg')} />
     <div id = "landing-content">
-      <h2> Who are we? </h2>
+      <h2> We are your #1 Gift-Exchange Community! </h2>
       <p>
         Nunc pharetra finibus est at efficitur. Praesent sed congue diam. Integer gravida dui mauris,
         ut interdum nunc egestas sed. Aenean sed mollis diam. Nunc aliquet risus ac finibus porta. Nam
