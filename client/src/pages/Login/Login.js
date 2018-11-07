@@ -35,7 +35,8 @@ handleFormSubmit = (event)=>{
     .then(res => {
       if (true) {
         console.log("logged in");
-        this.setState({loggedIn: true});
+        this.setState({loggedIn:true})
+        // this.state.loggedIn = true;
       }
     })
 }

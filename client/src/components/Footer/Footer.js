@@ -4,7 +4,10 @@ import "./Footer.css";
 
 const Footer = props => (
     <div id = "footer"> 
-          <div>
+
+    <p> Made with <span role="img" aria-label="Heart"> ❤️ </span> by Bethlehem, Chriscelle, Melvyn and Zachary &copy; 2018 </p>
+
+        <div>
             <Button color='facebook'>
             <Icon name='facebook' /> Facebook
             </Button>
@@ -21,7 +24,6 @@ const Footer = props => (
             <Icon name='youtube' /> YouTube
             </Button>
         </div>
-    <p> Made with <span role="img" aria-label="Heart"> ❤️ </span> by Bethlehem, Chriscelle, Melvyn and Zachary &copy; 2018 </p>
     </div>
 )
 

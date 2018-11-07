@@ -29,8 +29,8 @@ class Dashboard extends Component {
               return userData.amountToSpend;
             } else {
               return null;
-            }
-        }
+            }        
+          }
 
         const matchUser=this.state.users.filter(someFilterFunction);
         console.log(matchUser);
@@ -63,7 +63,7 @@ class Dashboard extends Component {
   <div className = "dashboard">
     <h1>Dashboard</h1>
       <p> Instructions: Once gift has been selected, please share tracking number </p>
-    <h2 id="receiverProfileHeader"> Receiver's Profile </h2>
+    <h2 id="receiverProfileHeader"> {"Receiver's Profile"} </h2>
 
       <Container fluid>
         <Row>
