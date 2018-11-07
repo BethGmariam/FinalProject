@@ -43,7 +43,6 @@
     "semantic-ui-react": "^0.83.0",
     "watson-developer-cloud": "^3.13.0",
     "if-env": "^1.0.4"
-
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
