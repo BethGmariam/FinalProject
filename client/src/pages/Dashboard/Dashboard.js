@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import "./Dashboard.css"
 import API from "../../utils/API";
-import FormBtn from "../../components/Form/FormBtn";
-import { Col, Row, Container } from "../../components/Grid";
 import { Button, Header, Modal } from 'semantic-ui-react'
 import { List, ListItem } from "../../components/List";
 import { Form, Text } from 'informed';
@@ -80,16 +78,16 @@ class Dashboard extends Component {
 
             console.log(matchUser)
 
- const displayCheck = ({ matchUser, results}) => {
+ const displayCheck = ({ matchUser }) => {
    if (matchUser.Safety === 0) {
-    return <p> X </p>
+     console.log("not")
+   } else { 
+     console.log("yes")
    }
-   
-  return (
-      <p>✓</p>
-  )
   
  };
+
+ console.log(displayCheck)
             
               
     
@@ -166,11 +164,11 @@ class Dashboard extends Component {
                           </p>
                           <p>
                           <strong> Step # 3 </strong> <span role="img" aria-label="mail"> 📨 </span> <br />
-                          For ease on operations, after package has been sent - please send us your tracking number to us via <a href="mailto:santasgiftexchange@santa.com"> email! </a>
+                          For ease on operations, after package has been sent - please send your tracking number to us via <a href="mailto:santasgiftexchange@santa.com"> email! </a>
                           </p>
                           <p>
                           <strong> Step # 4 </strong> <span role="img" aria-label="confirmation"> 💌 </span> <br />
-                          Wait for our confirmation via email, please make sure you have provided the correct information in your profile.
+                          Wait for our confirmation via email, which you must receive within 24-48 hours. If you have not received one, please give us a shout by calling 888-143-0987!
                           </p>
                         </Modal.Content>
                       </Modal>
@@ -179,7 +177,7 @@ class Dashboard extends Component {
                 ))}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
+              <h4>No Results to Display</h4>
             )}
           </div>
   </div>

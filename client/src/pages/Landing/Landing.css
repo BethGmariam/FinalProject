@@ -6,17 +6,31 @@
     margin-right: auto;
     margin-left: auto;
     display: block;
+    width: 40%;
+    margin-top: 30px;
+    border-radius: 100px
+}
+
+#landing p {
+    font-size: 115%
+}
+
+.main-info {
     width: 50%;
-    margin-top: 30px
+    text-align: center;
+    margin: 0 auto
 }
 
-#about {
-    display: block;
-    margin: 0;
+#landing h2 {
+    margin-top: 20px;
+    letter-spacing: .4em;
+    word-spacing: .8em
 }
 
-#about .card {
-    padding: 20px 30px;
-    top: 50%;
-    left: 50%;
+#landing h5 {
+    text-align: center;
+    line-height: 1.5em;
+    font-size: 130%;
+    font-family: 'Crimson Text', serif;
+
 }
