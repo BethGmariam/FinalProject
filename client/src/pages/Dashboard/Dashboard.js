@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import "./Dashboard.css"
 import API from "../../utils/API";
 // import DeleteBtn from "../../components/Form/DeleteBtn";
-import FormBtn from "../../components/Form/FormBtn";
+// import FormBtn from "../../components/Form/FormBtn";
+import { Button, Header, Icon, Modal } from 'semantic-ui-react'
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Form, Text } from 'informed';
@@ -124,7 +125,17 @@ console.log(budget);
                       <p>MailingAddress: {user.address}</p>
                       <p>Hobby: {user.interesthobby}</p>
                       <p>AmountToSpend:{user.amountToSpend}</p>
-                      <FormBtn onClick={()=>this.deleteUser(user._id)}>Send Gift</FormBtn>
+                      <Modal trigger={<Button onClick={()=>this.deleteUser(user._id)}>Send Gift</Button>} basic size='small'>
+                        <Header icon='smile' content='Instructions to help Santa do his/her job:' />
+                        <Modal.Content className = "modal-content">
+                          <p>
+                          1. Once gift has been selected, please send your tracking number to us via <a href="mailto:santasgiftexchange@santa.com"> email </a>
+                          </p>
+                          <p>
+                          2. Mail your package to our address: 123 Magic Unicorn Avenue North Pole, North Pole 888888
+                          </p>
+                        </Modal.Content>
+                      </Modal>
                     </div>
                   </ListItem>
                 ))}
@@ -145,8 +156,17 @@ console.log(budget);
                         <p>EmotionalRange: {user.EmotionalRange}</p>
                         <p>Extraversion:{user.Extraversion} </p>
                         <p>Openness: {user.Openness}</p>
-                        <FormBtn onClick={()=>this.deleteUser(user._id)}>Send Gift</FormBtn>
-
+                        <Modal trigger={<Button onClick={()=>this.deleteUser(user._id)}>Send Gift</Button>} basic size='small'>
+                          <Header icon='smile' content='Instructions to help Santa do his/her job:' />
+                          <Modal.Content className = "modal-content">
+                            <p>
+                            1. Once gift has been selected, please send your tracking number to us via <a href="mailto:santasgiftexchange@santa.com"> email </a>
+                            </p>
+                            <p>
+                            2. Mail your package to our address: 123 Magic Unicorn Avenue North Pole, North Pole 888888
+                            </p>
+                          </Modal.Content>
+                        </Modal>
                     </div>
                   </ListItem>
                 ))}
