@@ -78,10 +78,11 @@ class Dashboard extends Component {
     
             this.setState({ users: matchUser });
 
-            console.log(matchUser)
 
- const displayCheck = ({ matchUser, results}) => {
-   if (matchUser.Safety === 0) {
+            //console.log(matchUser.Safety)
+
+ const displayCheck = (user) => {
+   if (user.Safety === 0) {
     return <p> X </p>
    }
    
@@ -134,7 +135,7 @@ class Dashboard extends Component {
                 {this.state.users.map(user => (
                   <ListItem key={user._id}>
                   <div className = "interest-output"> 
-                      <p>First_name: {user.first_name}</p>
+                      <p>First_name: {user.first_name} </p>
                       <p>Last_name: {user.last_name}</p>
                       <p>MailingAddress: {user.address}</p>
                       <p>Hobby: {user.interesthobby}</p>
