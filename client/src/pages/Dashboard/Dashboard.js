@@ -1,13 +1,9 @@
-// import React from "react";
 import React, { Component } from 'react';
 import "./Dashboard.css"
 import API from "../../utils/API";
-import FormBtn from "../../components/Form/FormBtn";
-import { Col, Row, Container } from "../../components/Grid";
 import { Button, Header, Modal } from 'semantic-ui-react'
 import { List, ListItem } from "../../components/List";
 import { Form, Text } from 'informed';
-
 class Dashboard extends Component {
 
   state = {
