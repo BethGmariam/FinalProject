@@ -1,7 +1,7 @@
 const express = require("express"); // backend framework
 const mongoose = require("mongoose");//ORM for mongoDB
 const bodyParser = require("body-parser");//body of post request
-const mLabMongoURI = require("./config/keys").mLabMongoURI;//mongoDb connection key to mLab
+// const mLabMongoURI = require("./config/keys").mLabMongoURI;//mongoDb connection key to mLab
 const routes = require("./routes");// get routes
 const path = require("path")
 
@@ -12,24 +12,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //connect to mongo/mongoose
 mongoose
-.connect(process.env.MONGODB_URI || mLabMongoURI, { useNewUrlParser: true })
+.connect(process.env.MONGODB_URI || "mongodb://localhost/finalprojectdb")
 .then(()=>console.log("MongoDb connected...")) // once key is added to config folder keys.js file, server should connect to mLab finalprojectdb
 .catch(err => console.log(err));
 
 mongoose.set('useCreateIndex', true);// add for DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
 
 // for monitoring users
-const session = require('express-session');
-// const MongoStore = require('connect-mongo')(session);
-// const db = mongoose.connection;
-app.use(session({
-    secret: 'work hard',
-    resave: false,
-    saveUninitialized: true,
-    // store: new MongoStore({
-      // mongooseConnection: db
-    // })
-  }));
+// const session = require('express-session');
+// // const MongoStore = require('connect-mongo')(session);
+// // const db = mongoose.connection;
+// app.use(session({
+//     secret: 'work hard',
+//     resave: false,
+//     saveUninitialized: true,
+//     // store: new MongoStore({
+//       // mongooseConnection: db
+//     // })
+//   }));
 
 // use routes from routes folder index.js
 app.use(routes);
