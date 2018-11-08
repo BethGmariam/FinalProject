@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "connect-mongo": "^2.0.1",

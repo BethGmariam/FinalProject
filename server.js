@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //connect to mongo/mongoose
 mongoose
-.connect(process.env.MONGOLAB_COPPER_URI || mLabMongoURI, { useNewUrlParser: true })
+.connect(process.env.MONGODB_URI || mLabMongoURI, { useNewUrlParser: true })
 .then(()=>console.log("MongoDb connected...")) // once key is added to config folder keys.js file, server should connect to mLab finalprojectdb
 .catch(err => console.log(err));
 
