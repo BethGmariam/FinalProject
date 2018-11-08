@@ -7,7 +7,9 @@
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run dev",
     "start:prod": "node server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm start --prefix client"
+
   },
   "engines": {
     "node": "v10.11.0",
