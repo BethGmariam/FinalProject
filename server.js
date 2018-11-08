@@ -35,9 +35,11 @@ mongoose.set('useCreateIndex', true);// add for DeprecationWarning: collection.e
 app.use(routes);
 
 // Right before your app.listen(), add this:
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  // res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  res.sendFile(path.resolve(__dirname, '/client/build', 'index.html'));
+
+});
 
 const PORT = process.env.PORT || 5000;
 
