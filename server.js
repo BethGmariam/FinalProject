@@ -4,6 +4,9 @@ const bodyParser = require("body-parser");//body of post request
 // const mLabMongoURI = require("./config/keys").mLabMongoURI;//mongoDb connection key to mLab
 const routes = require("./routes");// get routes
 const path = require("path")
+require("dotenv").config()
+
+
 
 const app = express();
 
