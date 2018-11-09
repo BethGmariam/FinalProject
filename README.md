@@ -19,9 +19,9 @@ Bcrypt- password hashing npm package
 
 ## Group Members
 
-<a href = "https://github.com/BethGmariam"> Beth </a>: project MVC setup, working on model, react-component for login, setting up mLab for MongoDB hosting
-<a href = "https://github.com/chrissythebuilder"> Chriscelle </a>: front-end Responsive UI/UX, CSS, Semantic UI, React-components, User confirmation page modal
-<a href = "https://github.com/MelvynLing"> Mel </a>: Watson-Personality-Insight API, user matching-logic, registration form using Informed-UI
+<a href = "https://github.com/BethGmariam"> Beth </a>: project MVC setup, working on model, react-component for login, setting up mLab for MongoDB hosting <br />
+<a href = "https://github.com/chrissythebuilder"> Chriscelle </a>: front-end Responsive UI/UX, CSS, Semantic UI, React-components, User confirmation page modal <br />
+<a href = "https://github.com/MelvynLing"> Mel </a>: Watson-Personality-Insight API, user matching-logic, registration form using Informed-UI <br />
 <a href = "https://github.com/fnyah"> Zack </a>: User Authentication for user login/registration, user routes, database connection and hashing user’s personal info such as password
 
 ## Additional Instructions
