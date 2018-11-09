@@ -7,9 +7,9 @@
     "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "start": "npm run start:server",
     "start:server": "node server.js",
-    "start:client": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "start:client": "cd client/ && npm run start",
+    "build": "cd client/ && npm run build",
+    "eject": "cd client/ && npm run eject"
 
   },
   "engines": {
