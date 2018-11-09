@@ -10,11 +10,11 @@ It took the group a total of 3 weeks to complete the project where we initially 
 
 ## Technologies Used
 
-Node- for Server Environment
-Express-for web framework 
-MongoDB/Mongoose for the Model
-React- for front-end UI
-CSS	- for Wrapper, Informed, Semantic-UI  & Material-UI components
+Node- for Server Environment <br />
+Express-for web framework <br />
+MongoDB/Mongoose for the Model <br />
+React- for front-end UI <br />
+CSS	- for Wrapper, Informed, Semantic-UI  & Material-UI components <br />
 Bcrypt- password hashing npm package 
 
 ## Group Members
