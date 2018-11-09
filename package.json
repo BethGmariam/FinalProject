@@ -5,7 +5,12 @@
   "main": "server.js",
   "scripts": {
     "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "start": "node server.js"
+    "start": "npm run start:server",
+    "start:server": "node server.js",
+    "start:client": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+
   },
   "engines": {
     "node": "v10.11.0",
