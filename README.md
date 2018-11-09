@@ -31,7 +31,7 @@ pending for Heroku deployment; while waiting, to run the application please foll
 - clone the repo to your local master
 - "npm install" to get all required packages for best utilization of app functionality
 - "npm run start" to compile the files and run our application 
-- go to your browser and type localhost:5000
+- go to your browser and type localhost:3000
 
 There are two independent package.json files:
 1. one inside client folder for react (front end) only.
