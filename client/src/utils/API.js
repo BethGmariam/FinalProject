@@ -1,8 +1,14 @@
 import axios from "axios";
 
-// const BASEURL  = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=";
-// const APIKEY   = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
-// const queryFix = "&q=";
+const BASEURL1  = "http://apilayer.net/api/validate?access_key=";
+const APIKEY1   = "358013142c563d756a1ff7dbddd0d249";
+const queryFix1 = "&number=";
+const ccode = "&country_code"
+
+const BASEURL2  = "http://apilayer.net/api/check?access_key=";
+const APIKEY2   = "9c5398704689a20bc315c4c7a05e8958";
+const queryFix2 = "&email=";
+const smtp = "&smtp=0"
 
 export default {
   // Gets all users
@@ -37,9 +43,15 @@ export default {
   logout: function(userData) {
     return axios.post("api/users/logout", userData);
   },
-  // search: function(query) {
-  // 	console.log('full query: '+ BASEURL + APIKEY + queryFix + query);
-  //   return axios.get(BASEURL + APIKEY + queryFix + query);
-  // }
+
+  verifyNum: function(query) {
+  	console.log('full query: '+ BASEURL1 + APIKEY1 + queryFix1 + query + ccode);
+    return axios.get(BASEURL1 + APIKEY1 + queryFix1 + query);
+  },
+
+  verifyEM: function(query) {
+  	console.log('full query: '+ BASEURL2 + APIKEY2 + queryFix2 + query);
+    return axios.get(BASEURL2 + APIKEY2 + queryFix2 + query + smtp);
+  }
 
 };
