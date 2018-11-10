@@ -76,26 +76,20 @@ class Dashboard extends Component {
 
             console.log(matchUser)
 
- const displayCheck = ({ matchUser }) => {
-   if (matchUser.Safety === 0) {
-     console.log("not")
-   } else { 
-     console.log("yes")
-   }
+//  const displayCheck = ({ matchUser }) => {
+//    if (matchUser.Safety === 0) {
+//      console.log("not")
+//      document.append
+//    } else { 
+//      console.log("yes")
+//    }
   
- };
+//  };
 
- console.log(displayCheck)
-            
-              
-    
+//  console.log(displayCheck)
+  
         })
           .catch(err => console.log(err));
-
-
-  
- 
-
   }
 
   deleteUser = (id) => {
@@ -103,8 +97,6 @@ class Dashboard extends Component {
        .then(res => this.loadUsers())
        .catch(err => console.log(err));
   };
-
-
 
   render() {
     return (
@@ -135,17 +127,17 @@ class Dashboard extends Component {
                         <p>AmountToSpend:{user.amountToSpend}</p> <br />
 
                         <p> <strong> Interests and Personality </strong> </p>
-                        <p>Is saftey a concern for them?{user.Safety}</p>
-                        <p>does Quality matter to them?{user.Quality}</p>
-                        <p>Are they worried about style? {user.stylish}</p>
-                        <p>They need something comfortable?{user.comfort}</p>
-                        <p>Are Brand Names important to them? {user.brandName}</p>
-                        <p>Do they like useful things? {user.useful}</p>
-                        <p>Are they a family person? {user.family}</p>
-                        <p>Are they spontaneous, willing to do things on a whim?{user.spontaneous}</p>
-                        <p>Are they a Gym Rat? {user.gym}</p>
-                        <p>Do they like the outdoors? {user.outdoors}</p>
-                        <p>Are They are a socially conscious person? {user.socialCon}</p>
+                        <p>Is saftey a concern for them?{user.Safety}</p><p id="wpa1"></p>
+                        <p>does Quality matter to them?{user.Quality}</p><p id="wpa2"></p>
+                        <p>Are they worried about style? {user.stylish}</p><p id="wpa3"></p>
+                        <p>They need something comfortable?{user.comfort}</p><p id="wpa4"></p>
+                        <p>Are Brand Names important to them? {user.brandName}</p><p id="wpa5"></p>
+                        <p>Do they like useful things? {user.useful}</p><p id="wpa6"></p>
+                        <p>Are they a family person? {user.family}</p><p id="wpa7"></p>
+                        <p>Are they spontaneous, willing to do things on a whim?{user.spontaneous}</p><p id="wpa8"></p>
+                        <p>Are they a Gym Rat? {user.gym}</p><p id="wpa9"></p>
+                        <p>Do they like the outdoors? {user.outdoors}</p><p id="wpa10"></p>
+                        <p>Are They are a socially conscious person? {user.socialCon}</p><p id="wpa11"></p>
       
                         <Modal trigger={<Button onClick={()=>this.deleteUser(user._id)}>Send Gift</Button>} basic size='small'>
                         <Header icon='smile' content='Instructions to help Santa do his/her job:' />
