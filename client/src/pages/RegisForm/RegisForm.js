@@ -49,12 +49,59 @@ class RegisForm extends Component {
 
     }
 
+
+
     handleInputChange = (evt) => {
       const { name, value } = evt.target;
      this.setState({
        [name]: value
      });
     }
+
+    handlePhoneValid = () => {
+      let validPhone = {
+        phone:this.state.phone
+      }
+      //console.log(validPhone.phone);
+      API.verifyNum(validPhone.phone)
+         .then(res => {
+          //console.log(res.data);
+          let validatephone= res.data.valid
+          //console.log(validatephone)
+          var bt = document.getElementById('submit-btn');
+          if (validatephone === false) {
+            alert('Hey... you and I both know thats not a real phone number, try again');
+            bt.disabled = true;
+          }
+          else if  (validatephone === undefined) {
+            bt.disabled = false
+          } else {
+              bt.disabled = false;
+          }
+    })
+}
+
+    handleEmailValid = () => {
+      let validEmail = {
+        email:this.state.email
+      }
+      //console.log(validEmail.email)
+      API.verifyEM(validEmail.email)
+          .then(res => {
+          //console.log(res.data);
+          let validateemail = res.data.format_valid
+          console.log(validateemail);
+          var bt = document.getElementById('submit-btn');
+          if (validateemail === false) {
+            alert("Oh, Come on! Who are you trying to fool! Use a real email!");
+            bt.disabled = true;
+        } else if  (validateemail === undefined) {
+          bt.disabled = false
+        } else {
+            bt.disabled = false;
+        }
+    })   
+}
 
     handleClick = (evt) => {
       evt.preventDefault();
@@ -109,7 +156,7 @@ API.saveUser(userData).then((res)=>{
       document.getElementById("noofwords").value = str1.split(' ').length;
     }
 
-
+  
     
     render() {
         //console.log('render', this.state.name);
@@ -128,20 +175,21 @@ API.saveUser(userData).then((res)=>{
           </div>
           <div className = "question-reg">
                 <label htmlFor="phone">Phone Number:</label>
-                <Text field="phone" className="question-field" id="phone" placeholder="XXX-XXX-XXXX" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-          </div>
-          <div className = "question-reg">
-                <label htmlFor="email">Email Address:</label>
-                <Text field="email" className="question-field" id="email" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
-          </div>
-          <div className = "question-reg">
-                <label htmlFor="password"> Password:</label>
-                <Text field="password" className="question-field" id="password" type="password" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+                <Text field="phone" className="question-field" id="phone" placeholder="XXX-XXX-XXXX" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} onBlur={this.handlePhoneValid} />
           </div>
           <div className = "question-reg">
                 <label htmlFor="twitterAccount">Twitter Account:</label>
                 <Text field="twitterAccount" className="question-field" id="twitterAccount" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
           </div>
+          <div className = "question-reg">
+                <label htmlFor="email">Email Address:</label>
+                <Text field="email" className="question-field" id="email" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} onBlur={this.handleEmailValid} />
+          </div>
+          <div className = "question-reg">
+                <label htmlFor="password"> Password:</label>
+                <Text field="password" className="question-field" id="password" type="password" validate={basicValidation} value={this.state.value} v="true" onChange={this.handleInputChange} />
+          </div>
+
           
           <div className = "question-reg">
                 <label htmlFor="address">Home Mailing Address:</label>
